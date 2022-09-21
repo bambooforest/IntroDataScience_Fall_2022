@@ -1,0 +1,114 @@
+Instructions for your data practical
+================
+Steven Moran
+(21 September, 2022)
+
+-   <a href="#overview" id="toc-overview">Overview</a>
+-   <a href="#learning-objectives" id="toc-learning-objectives">Learning
+    objectives</a>
+-   <a href="#requirements" id="toc-requirements">Requirements</a>
+
+# Overview
+
+For your “final” data practical, you will create a [“scientific”
+report](2_writing_scientific_reports). This report must be in R Markdown
+with an accompanying `.md` (markdown) file that you “knit” from the
+`Rmd` file. Both files will be uploaded to your GitHub repository as
+`README.Rmd` and `README.md`, so that they display nicely in the
+browser. You will present your work during the last session of class.
+
+You will write your report on some topic(s) that you are interested in.
+For example, are you working on a masters thesis topic? Does it require
+some type of quantitative analysis and data visualization? Why not use
+that data and what you learn in class towards your thesis?
+
+Or are you interested in [data
+journalism](https://en.wikipedia.org/wiki/Data_journalism)? Why not
+create a data practical that reports on some type of analysis of data
+that creates or elevates a story? Here is a fun resource that “makes
+awesome stories with data” and has some fun examples:
+
+-   <https://pudding.cool>
+
+Here’s one of my favorites:
+
+-   <https://pudding.cool/projects/vocabulary/index.html>
+
+# Learning objectives
+
+The learning objectives for your data practical include:
+
+-   Get familiar and comfortable creating R Markdown reports
+-   Be able to to implement R code and quantitative methods (data
+    transformation, visualization, and analysis) with real data of your
+    choosing
+-   Learn the basics of creating reproducible data science
+-   Have familiarity with software and tools for data science
+-   Have fun!
+
+# Requirements
+
+-   Your report must be in R Markdown (see above) – if you use
+    [Python](https://www.python.org) and prefer to do a scientific
+    report with Python and [Jupyter notebook](https://jupyter.org) or
+    [Google Colab](https://colab.research.google.com), then discuss this
+    with me!
+
+-   Your README.Rmd must include a header with
+    [metadata](https://en.wikipedia.org/wiki/Metadata) (e.g., title,
+    author, date, output format) that successfully knits into markdown
+    (\`.md)
+
+-   You must use R Markdown syntax for formatting your scientific
+    report, e.g.:
+
+    -   Use headers and sub-headers
+    -   Use some text formatting, such as *italics* or **bold**
+    -   Create bullet lists
+    -   [Insert
+        pictures](https://stackoverflow.com/questions/25166624/insert-picture-table-in-r-markdown)
+    -   Etc.
+
+-   You must cite your sources and you must have a
+    [bibliography](2_writing_scientific_reports) of references cited –
+    this can be done by hand (but if it is not compliant with a specific
+    [citation
+    style](https://www.scribbr.com/citing-sources/citation-styles/)),
+    you will lose points or it can be generated automatically
+    (preferred).
+
+-   You scientific report must contain R code blocks, i.e., you will
+    have to implement code in R including:
+
+    -   [Loading and displaying the data](3_data)
+    -   [Transforming (aka “wrangling”) data](4_data_wrangling)
+
+-   You must find and use some dataset(s) for your report. You must
+    describe the data, e.g., in terms of its R vs statistical data
+    types. Knowing the data types will help you visualze the data.
+
+-   You must implement some data visualization(s) of your dataset(s).
+    Here are lots of examples:
+
+    -   [Data visualizations I](5_data_visualization)
+    -   [Data visualizations II](6_data_visualization)
+
+-   You must ask a question, propose a hypothesis, and [model your
+    data](7_data_modeling).
+
+-   Your data model(s) and quantitative method(s) must fit the
+    question(s) that you are asking. There are a lot fo different data
+    models and methods to choose from, e.g.:
+
+    -   [Linear models I](8_Linear_Models_I)
+    -   [Linear models II](9_Linear_Models_II)
+    -   [Dimensionality
+        redution](10_Dimensionality_reduction_clustering_I)
+    -   [Dimensionality
+        redution](111_Dimensionality_reduction_clustering_II)
+    -   [Time series](12_Time_series_analysis)
+    -   [Machine learning](13_Time_series_analysis)
+
+-   You must have an introduction that introduces your work.
+
+-   You must present and discuss your results and provide a conclusion.
