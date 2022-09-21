@@ -40,7 +40,7 @@ You will also want a [spreadsheet program](https://en.wikipedia.org/wiki/Spreads
 
 ## GitHub
 
-Your final data practical must be uploaded to your GitHub reposotiry. If you are new to [software repositories](https://en.wikipedia.org/wiki/Software_repository) you may leave this step until the end, although I encourage you to jump in early because repositories can be used to save your work in the cloud and to share it with others for input and collaboration.
+Your final data practical must be uploaded to your GitHub repository. If you are new to [software repositories](https://en.wikipedia.org/wiki/Software_repository) you may leave this step until the end, although I encourage you to jump in early because repositories can be used to save your work in the cloud and to share it with others for input and collaboration.
 
 Create a [GitHub](https://en.wikipedia.org/wiki/GitHub) account:
 
@@ -88,17 +88,16 @@ In your data practical repository for this course, you will create a [README mar
 Pro-tip: when you initially create a [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo), if you check the appropriate settings, an empty `README.md` file is created for you. Go ahead and [edit](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) it.
 
 
-## Uploading files to GitHub
+## Uploading files to GitHub (beginner)
 
 The most basic way to upload files to GitHub is through the browser by clicking the `Upload files` button and dragging the file into the browser window, when prompted:
 
 ![Upload to GitHub.](upload.png)
 
 
-## Accesing GitHub with RStudio
+## Accesing GitHub with RStudio (advanced)
 
-
-You can access your GitHub repository from within RStudio by using Git in RStudio.
+For advanced users, you can access your GitHub repository from within RStudio by using Git in RStudio.
 
 If you have not yet cloned your repository, follow these steps:
 
