@@ -22,6 +22,19 @@ For example, are you working on a masters thesis topic? Does it require
 some type of quantitative analysis and data visualization? Why not use
 that data and what you learn in class towards your thesis?
 
+Or are you working on a scientific paper that requires some type of
+qualitative and quantitative analysis? Here is an example of a paper I
+recently co-wrote with Matthias Urban on ejective and uvular speech
+sounds in the world’s languages:
+
+-   <https://doi.org/10.1371/journal.pone.0245522>
+
+We lay out our hypothesis and describe the analysis in the paper and
+produce the supplementary materials in R Markdown reports, e.g.:
+
+-   <https://github.com/urban-m/elev/tree/master/phylogenetic_study>
+-   <https://github.com/urban-m/elev>
+
 Or are you interested in [data
 journalism](https://en.wikipedia.org/wiki/Data_journalism)? Why not
 create a data practical that reports on some type of analysis of data
