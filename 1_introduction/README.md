@@ -88,7 +88,15 @@ In your data practical repository for this course, you will create a [README mar
 Pro-tip: when you initially create a [GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo), if you check the appropriate settings, an empty `README.md` file is created for you. Go ahead and [edit](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) it.
 
 
+## Uploading files to GitHub
+
+The most basic way to upload files to GitHub is through the browser by clicking the `Upload files` button and dragging the file into the browser window, when prompted:
+
+![Upload to GitHub.](upload.png)
+
+
 ## Accesing GitHub with RStudio
+
 
 You can access your GitHub repository from within RStudio by using Git in RStudio.
 

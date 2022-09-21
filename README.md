@@ -1,6 +1,6 @@
 # Intro to data science
 
-* **Lectures**: Wednesdays 13:00--16:00 (21.09.2022--14.12.2022)
+* **Lectures**: Wednesdays 13:15--16:00 (21.09.2022--14.12.2022)
 * **Location**: RS40 - [Faculty of Arts](https://goo.gl/maps/ufPzXmoxHDXrbPrx6)
 * **ECTS credits**: 3
 * **Instructor**: [Dr. Steven Moran](https://www.unine.ch/evolang/home/team/steven-moran.html) \<steven.moran@unine.ch\>
@@ -9,7 +9,7 @@
 
 **Course summary**: The basic principles and methods of [data science](https://en.wikipedia.org/wiki/Data_science) will be presented. A central theme is the assessment of scientific claims, and subsequent data collection, transformation, quantitative analysis, and reporting of scientific results. Official course description:
 
-* http://www10.unine.ch/desc_data/plans2021-2022/plan_2021-2022_2LN2319.pdf
+* http://www10.unine.ch/desc_data/plans2022-2023/plan_2022-2023_2LN2319.pdf
 
 **Form of assessment**: Continuous assessment with data science exercises (graded). Work not submitted by the required deadline will result in a fail for that given assessment.
 
