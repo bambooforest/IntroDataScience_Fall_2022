@@ -12,7 +12,16 @@ This course assumes you are familiar with the basics of the [R programming langu
 
 ## RStudio
 
-Install [RStudio](https://www.rstudio.com), unless you are already an R Pro and prefer some other [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface), [CLI](https://en.wikipedia.org/wiki/Command-line_interface), or [computer program](https://en.wikipedia.org/wiki/Computer_program) that allows you to [create R markdown](https://rmarkdown.rstudio.com/authoring_quick_tour.html) reports that will be stored in your GitHub repository. Note: be weary of automatic spell checking -- and presumably grammar checking -- in RStudio.
+Install [RStudio](https://www.rstudio.com), unless you are already an R pro and prefer some other [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface), [CLI](https://en.wikipedia.org/wiki/Command-line_interface), or [computer program](https://en.wikipedia.org/wiki/Computer_program) that allows you to [create R markdown](https://rmarkdown.rstudio.com/authoring_quick_tour.html) reports that will be stored in your GitHub repository. Note: be weary of automatic spell checking -- and presumably grammar checking -- in RStudio.
+
+
+## Spreadsheets
+
+You will also want a [spreadsheet program](https://en.wikipedia.org/wiki/Spreadsheet), so that you can look at and manipulate data in [tabular formats](https://en.wikipedia.org/wiki/Table_(information)). Here are some options:
+
+* [Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel)
+* [OpenOffice](https://en.wikipedia.org/wiki/Apache_OpenOffice)
+* [Numbers](https://en.wikipedia.org/wiki/Numbers_(spreadsheet))
 
 
 ## Text editor (optional but suggested)
@@ -29,16 +38,7 @@ Note: there are many other plain text editor software programs out there. [LMGTF
 * [https://www.google.com/search?&q=best+plain+text+editors](https://www.google.com/search?&q=best+plain+text+editors)
 
 
-## Spreadsheets
-
-You will also want a [spreadsheet program](https://en.wikipedia.org/wiki/Spreadsheet), so that you can look at and manipulate data in [tabular formats](https://en.wikipedia.org/wiki/Table_(information)). Here are some options:
-
-* [Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel)
-* [OpenOffice](https://en.wikipedia.org/wiki/Apache_OpenOffice)
-* [Numbers](https://en.wikipedia.org/wiki/Numbers_(spreadsheet))
-
-
-## GitHub (beginner)
+## GitHub
 
 Your final data practical must be uploaded to your GitHub repository (your README.Rmd and README.md files along with any plots, images, etc.). 
 
@@ -97,7 +97,7 @@ Here some information about RStudio projects:
 * https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 
 
-# GitHub (advanced)
+# GitHub (advanced; optional)
 
 For those who want to know more about GitHub and [version control](https://en.wikipedia.org/wiki/Distributed_version_control), here are some tutorials (but there are many more on the web and you are not expected to go through them all!):
 
