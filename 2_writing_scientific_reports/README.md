@@ -1,24 +1,22 @@
 Writing scientific reports
 ================
 Steven Moran
-(21 September, 2022)
+(26 September, 2022)
 
--   <a href="#r-markdown-overview" id="toc-r-markdown-overview">R Markdown
+-   <a href="#scientific-reports-why"
+    id="toc-scientific-reports-why">Scientific reports: why?</a>
+-   <a href="#r-markdown-overview" id="toc-r-markdown-overview">R Markdown:
     overview</a>
 -   <a href="#title" id="toc-title">Title</a>
     -   <a href="#subtitle" id="toc-subtitle">Subtitle</a>
--   <a href="#scientific-reports" id="toc-scientific-reports">Scientific
-    reports</a>
-    -   <a href="#why" id="toc-why">Why?</a>
-    -   <a href="#automatic-referencing"
-        id="toc-automatic-referencing">Automatic referencing</a>
-    -   <a href="#back-to-automatic-referencing"
-        id="toc-back-to-automatic-referencing">Back to automatic referencing</a>
+-   <a href="#automatic-referencing"
+    id="toc-automatic-referencing">Automatic referencing</a>
+-   <a href="#additional-resources" id="toc-additional-resources">Additional
+    resources</a>
+    -   <a href="#r-markdown" id="toc-r-markdown">R Markdown</a>
     -   <a href="#reference-management-software"
         id="toc-reference-management-software">Reference management software</a>
 -   <a href="#references" id="toc-references">References</a>
-
-# R Markdown overview
 
 This report uses the [R programming
 language](https://cran.r-project.org/doc/FAQ/R-FAQ.html) (R Core Team
@@ -30,183 +28,48 @@ library(tidyverse)
 library(knitr)
 ```
 
-This report will explain how to create scientific reports in R Markdown.
-This report is [itself](README.Rmd) is generated from an R Markdown
-file, e.g.:
+------------------------------------------------------------------------
 
--   <https://rmarkdown.rstudio.com>
--   <https://r4ds.had.co.nz/r-markdown.html>
--   <https://www.earthdatascience.org/courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/>
-
-The file extension is [.Rmd](https://fileinfo.com/extension/rmd).
-Together with the `knitr` package and RStudio, this report
-[compiles](https://en.wikipedia.org/wiki/Compilation) this R Markdown
-file (.Rmd) file into a [Markdown
-file](https://fileinfo.com/extension/md) (.md) file that [displays
-nicely in GitHub](README.md).
-
-In the setup chunk above (not shown in this .md file; only in the [.Rmd
-file](https://github.com/bambooforest/IntroDataScience/blob/main/2_writing_scientific_reports/README.Rmd#L1-L9)
-that you will work with and edit directly), I have defined in the [file
-header](https://en.wikipedia.org/wiki/File_format#File_header) the
-[metadata](https://en.wikipedia.org/wiki/Metadata) that specifies for
-example the `title`, `author`, `date`, and `output` format for
-generating this report. R Markdown uses
-[YAML](https://en.wikipedia.org/wiki/YAML) to
-[configure](https://en.wikipedia.org/wiki/Configuration_file) how this
-file should be generated, e.g., I am telling it to produce a
-[github_document](https://rmarkdown.rstudio.com/github_document_format.html):
-
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      github_document
-
-This is because then the output (i.e., the .md file) will display nicely
-in the browser. There are many options for different output formats:
-
--   <https://rmarkdown.rstudio.com/lesson-9.html>
--   <https://epirhandbook.com/en/reports-with-r-markdown.html>
-
-For example, you can set your report to create an [HTML
-document](https://bookdown.org/yihui/rmarkdown/html-document.html):
-
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      html_document 
-
-Or maybe you want to create a [PDF
-document](https://bookdown.org/yihui/rmarkdown/pdf-document.html) of
-this report, e.g., so that you can submit it for publication?
-
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      pdf_document
-
-Or maybe you want it to come out as a [Word
-document](https://bookdown.org/yihui/rmarkdown/word-document.html)
-because you want to share it with someone who only works in Word (e.g.,
-one of my old professors):
-
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      word_document
-
-You can even create for example slides, such as in
-[PowerPoint](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html):
-
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      powerpoint_presentation
-
-The header gives you a lot of flexibility, in particular because by
-changing the header you can quickly (and typically easily) change the
-output format **without having to change everything in the R Markdown
-file**. This is because the formatting that you are doing, i.e., you are
-using a [Markup language](https://en.wikipedia.org/wiki/Markup_language)
-that specifies how document should be displayed.
-
-Here are some basics:
-
--   <https://bookdown.org/yihui/rmarkdown/basics.html>
-
-For example, if I use the `#` hash symbol like this:
-
-    # Title
-    ## Subtitle
-
-I will get this in my report:
-
-# Title
-
-## Subtitle
-
-For example, this formatted sentence:
-
-You will need to **learn** the *basics* of how to ***format*** your
-`text` in [R
-Markdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
-
-Is written like this in R Markdown:
-
-    You will need to **learn** the *basics* of how to ***format*** your `text` in [R Markdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
-
-There are not that many things to remember. Things like bullet lists are
-helpful:
-
--   Item 1
--   Item 2
-
-Which is formatted like this:
-
-    * Item 1
-    * Item 2
-
-A good thing to keep near when you are learning R Markdown are [cheat
-sheets](https://en.wikipedia.org/wiki/Cheat_sheet). [Let me google some
-for you](https://www.dictionary.com/e/slang/lmgtfy/):
-
--   <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>
--   <https://ethz.ch/content/dam/ethz/special-interest/math/statistics/sfs/Education/Advanced%20Studies%20in%20Applied%20Statistics/course-material-1719/Datenanalyse/rmarkdown-2.pdf>
-
-These cheat sheets very condensely visualize and explain the R Markdown
-workflow. Please have a look at them.
-
-Regarding the header, it also has many options, including for example
-that a [table of contents
-(TOC)](https://en.wikipedia.org/wiki/Table_of_contents) is created and
-that the document should automatic citation referencing (more on this
-below). So, for example, this file specifies the header as:
-
-    ---
-    title: "Writing scientific reports"
-    author: "Steven Moran"
-    date: "(21 September, 2022)"
-    output:
-      github_document:
-          toc: true
-    bibliography: 'references.bib'
-    ---
-
-That is, title, author, date it was compiled, output should be a GitHub
-displayable document, with a TOC, and use the references in the
-references bibliography file.
-
-# Scientific reports
-
-## Why?
+# Scientific reports: why?
 
 How do you organize your research for scientific publications, or your
-masters thesis, or your term papers? Do you only write down your
-observations and findings (e.g., philosophical discussion, literary
-analysis)? Or do you also do some type of scientific analysis? If so,
-does it involve [computer
+masters thesis, or your term papers?
+
+Do you only write down your observations and findings (e.g.,
+philosophical discussion, literary analysis)?
+
+Or do you also do some type of [scientific
+analysis](https://en.wikipedia.org/wiki/Scientific_method)?
+
+If so, does it involve [computer
 code](https://en.wikipedia.org/wiki/Computer_programming) or
-[statistical analysis](https://en.wikipedia.org/wiki/Statistics)? Are
-you using the [scientific
+[statistical analysis](https://en.wikipedia.org/wiki/Statistics)?
+
+Are you using the [scientific
 method](https://en.wikipedia.org/wiki/Scientific_method)?
 
-If so, let’s take a minute and discuss how we organize ourselves.
+Do you follow a particular
+[workflow](https://en.wikipedia.org/wiki/Workflow)? For example, the
+[IMRAD](https://en.wikipedia.org/wiki/IMRAD) organizational structure
+for the systematic organization of a research paper:
 
-Obviously, different people have different workflows, organization
-methods, different ways of writing text, writing code, etc. They use
+![IMRAD workflow.](Wineglass_model_for_IMRaD_structure.png)
+
+If so, let’s take a minute and discuss how we can organize ourselves.
+
+------------------------------------------------------------------------
+
+Obviously, different people in different professions have different
+workflows, organizational needs and methods, different ways of writing
+and storing text, programming code, etc. Different needs require
 different strategies, different programming languages, different
 statistical packages, etc.
 
-Now, given all the different ways of doing things, lack of access to
-data, changing code, etc., we find ourselves in science in a replication
-crisis. Here are some resources that discuss this issue:
+Now, given all the different ways of doing things, and lack of access to
+data, changing code, etc., we find ourselves in science in a
+[replication crisis](https://en.wikipedia.org/wiki/Replication_crisis).
+Here are some resources that discuss this issue:
 
--   <https://en.wikipedia.org/wiki/Replication_crisis>
 -   <https://www.nature.com/articles/533452a>
 -   <https://www.pnas.org/content/115/11/2628>
 -   <https://www.vox.com/future-perfect/21504366/science-replication-crisis-peer-review-statistics>
@@ -226,16 +89,17 @@ meant to be reproducible! That’s why we have the scientific method:
 -   <https://en.wikipedia.org/wiki/Scientific_method>
 -   <https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method>
 
-As such, data in publish experiments and the code that was used to
+As such, data in published experiments and the code that was used to
 produce the data and/or analysis should be [openly
 available](https://en.wikipedia.org/wiki/Open_source) for researchers to
 test.
 
-Let’s face it, most scientists are not properly trained in computer
-programming and many are also not trained in statistical analysis.
+Let’s face it, most scientists are not properly trained in [computer
+programming](https://en.wikipedia.org/wiki/Computer_programming) or in
+[statistical analysis](https://en.wikipedia.org/wiki/Statistics).
 
 For example, in regard to several studies on linguistic diversity, I
-wrote this in a commentary about [this
+wrote the following text in a commentary about [this
 paper](https://doi.org/10.1093/jole/lzv004) because the authors made
 some interesting claims, but did not publish the data and code for
 analysis, so it couldn’t be fact checked or reproduced (Moran 2016):
@@ -260,7 +124,8 @@ analysis, so it couldn’t be fact checked or reproduced (Moran 2016):
 > > > names.
 
 Note in particular the references to Hatton (1997) and Barnes (2010).
-First, as Hatton (1997) points out, **most software has
+
+As Hatton (1997) points out, **most software has
 [bugs](https://en.wikipedia.org/wiki/Software_bug)**. Bugs may result in
 incorrect analyses, i.e., in correct results. This can be for example
 unknown to the analyst/coder because there are software bugs that break
@@ -272,16 +137,18 @@ used the same variable name and its value gets reassigned incorrectly).
 Therefore, Barnes (2010) puts it directly in the title of his paper in
 *[Nature](https://www.nature.com)*: “[Publish your computer code: it is
 good enough](https://www.nature.com/articles/467753a)”. This is a great
-and short read that starts out:
+and short read that starts out by stating:
 
 > > > I am a professional software engineer and I want to share a trade
 > > > secret with scientists: most professional computer software isn’t
 > > > very good. The code inside your laptop, television, phone or car
 > > > is often badly documented, inconsistent and poorly tested.
 
-And he is right. As a professional academic, I get asked to review for
-journals a lot. I refuse to review any paper that does not make its data
-and code available for review. Here is for example [an open
+And the author is right!
+
+As a professional academic, I get asked a lot to review for journals. I
+refuse to review any paper that does not make its data and code
+available for review. Here is for example [an open
 review](https://github.com/bambooforest/reviews/blob/master/Macklin-CordesRound2020/review.md)
 that I did for [a
 paper](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.570895/full)
@@ -290,8 +157,8 @@ which itself is reproducible:
 
 -   <https://github.com/bambooforest/reviews/tree/master/Macklin-CordesRound2020>
 
-Needless to say, I found a lot of errors in their data, which they then
-went on to fix for the published version.
+Needless to say, I found errors in their data, which they then went on
+to fix for the published version.
 
 Thus, to combat the replication crisis, scientific workflows and ways of
 organization are helpful tools for creating reproducible science, e.g.:
@@ -301,7 +168,7 @@ organization are helpful tools for creating reproducible science, e.g.:
 -   <https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303>
 
 A popular form of creating reproducible work is to use data science
-notebooks, e.g.:
+notebooks, including R Markdown, e.g.:
 
 -   <https://rmarkdown.rstudio.com/lesson-10.html>
 -   <https://jupyter.org/>
@@ -310,11 +177,14 @@ notebooks, e.g.:
 The tools you use may largely depend on the programming language(s) you
 are using.
 
-There are also so-called “open data handbooks”. Two that I know of are
-these (but there may be ones in your own field):
+There are also so-called “open data handbooks” that give more details
+about these issues. Two that I know of are these (but there may be ones
+in your own field):
 
 -   <https://mitpress.mit.edu/books/open-handbook-linguistic-data-management>
 -   <https://opendatahandbook.org>
+
+------------------------------------------------------------------------
 
 In this course, we will be using R and R Markdown reports. This gives us
 flexibility to bring together code and text into a single document,
@@ -327,10 +197,9 @@ Here is an example that even devises analyses as R packages:
 -   <http://rmflight.github.io/posts/2014/07/analyses_as_packages.html>
 
 This is a bit advanced, nevertheless an interesting approach that we can
-discuss in class.
+discuss in class, if you are interested.
 
-For now, let’s look for example at a case study that I wrote with
-[Matthias
+For now, here is an example of a case study that I wrote with [Matthias
 Urban](https://scholar.google.co.uk/citations?user=CcAwMF8AAAAJ&hl=en)
 for a [paper](https://doi.org/10.1371/journal.pone.0245522) on the the
 distribution of
@@ -341,7 +210,177 @@ distribution of
 -   <https://github.com/urban-m/elev/blob/master/phylogenetic_study/phylogenetic_study.md>
 -   <https://github.com/urban-m/elev/blob/master/phylogenetic_study/phylogenetic_study_plots.md>
 
-## Automatic referencing
+# R Markdown: overview
+
+This report will help explain how to create [scientific
+reports](https://writingcenter.unc.edu/tips-and-tools/scientific-reports/)
+in [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html).
+
+For an overview of R Markdown, check out this video:
+
+-   <https://rmarkdown.rstudio.com/lesson-1.html>
+
+And the tutorials here:
+
+-   <https://rmarkdown.rstudio.com>
+
+What you are currently reading is [itself](README.Rmd) generated from an
+R Markdown file.
+
+The file extension is [.Rmd](https://fileinfo.com/extension/rmd).
+Together with the `knitr` package and RStudio, this report
+[compiles](https://en.wikipedia.org/wiki/Compilation) this R Markdown
+file (.Rmd) file into a [Markdown
+file](https://fileinfo.com/extension/md) (.md) file that [displays
+nicely in GitHub](README.md).
+
+You can also use the same file to generate other output formats!
+
+In the setup chunk above (not shown in this .md file; only in the [.Rmd
+file](https://github.com/bambooforest/IntroDataScience/blob/main/2_writing_scientific_reports/README.Rmd#L1-L9)
+that you will work with and edit directly), I have defined in the [file
+header](https://en.wikipedia.org/wiki/File_format#File_header) the
+[metadata](https://en.wikipedia.org/wiki/Metadata) that specifies for
+example the `title`, `author`, `date`, and `output` format for
+generating this report. R Markdown uses
+[YAML](https://en.wikipedia.org/wiki/YAML) to
+[configure](https://en.wikipedia.org/wiki/Configuration_file) how this
+file should be generated, e.g., I am telling it to produce a
+[github_document](https://rmarkdown.rstudio.com/github_document_format.html):
+
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      github_document
+
+This is because then the output (i.e., the .md file) will display nicely
+in the browser. There are many options for different output formats:
+
+-   <https://rmarkdown.rstudio.com/lesson-9.html>
+-   <https://epirhandbook.com/en/reports-with-r-markdown.html>
+
+For example, you can set your report to create an [HTML
+document](https://bookdown.org/yihui/rmarkdown/html-document.html):
+
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      html_document 
+
+Or maybe you want to create a [PDF
+document](https://bookdown.org/yihui/rmarkdown/pdf-document.html) of
+this report, e.g., so that you can submit it for publication?
+
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      pdf_document
+
+Or maybe you want it to come out as a [Word
+document](https://bookdown.org/yihui/rmarkdown/word-document.html)
+because you want to share it with someone who only works in Word (e.g.,
+one of my old professors):
+
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      word_document
+
+You can even create for example slides, such as in
+[PowerPoint](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html):
+
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      powerpoint_presentation
+
+Regarding the header, it also has many options, including for example
+that a [table of contents
+(TOC)](https://en.wikipedia.org/wiki/Table_of_contents) is created and
+that the document should automatic citation referencing (more on this
+below). So, for example, this file specifies the header as:
+
+    ---
+    title: "Writing scientific reports"
+    author: "Steven Moran"
+    date: "(26 September, 2022)"
+    output:
+      github_document:
+          toc: true
+    bibliography: 'references.bib'
+    ---
+
+That is, title, author, date it was compiled, output should be a GitHub
+displayable document, with a TOC, and use the references in the
+references bibliography file.
+
+------------------------------------------------------------------------
+
+The header gives you a lot of flexibility, in particular because by
+changing the header you can quickly (and typically easily) change the
+output format **without having to change everything in the R Markdown
+file**. This is because the formatting that you are doing, i.e., you are
+using a [Markup language](https://en.wikipedia.org/wiki/Markup_language)
+that specifies how document should be displayed.
+
+Here are some basics:
+
+-   <https://bookdown.org/yihui/rmarkdown/basics.html>
+
+For example, if I use the `#` hash symbol like this:
+
+    # Title
+    ## Subtitle
+
+I will get this in my report:
+
+# Title
+
+## Subtitle
+
+For example, this sentence formatted with **bold** and *italicized* text
+and a [hyperlink](https://en.wikipedia.org/wiki/Hyperlink) is written
+like this in R Markdown\]:
+
+    For example, this sentence formatted with **bold** and *italicized* text and a [hyperlink](https://en.wikipedia.org/wiki/Hyperlink) is written like this in R Markdown]:
+
+A good thing to keep near when you are learning R Markdown are [cheat
+sheets](https://en.wikipedia.org/wiki/Cheat_sheet). [Let me google some
+for you](https://www.dictionary.com/e/slang/lmgtfy/):
+
+-   <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>
+-   <https://ethz.ch/content/dam/ethz/special-interest/math/statistics/sfs/Education/Advanced%20Studies%20in%20Applied%20Statistics/course-material-1719/Datenanalyse/rmarkdown-2.pdf>
+
+These cheat sheets are condense visualizations and explain the R
+Markdown workflow. Please have a look at them.
+
+There are not that many things to remember with regard to basic
+formatting. For example, bullet lists are helpful:
+
+-   Item 1
+-   Item 2
+
+Which is formatted like this:
+
+    * Item 1
+    * Item 2
+
+Or this:
+
+    - Item 1
+    - Item 2
+
+Or this:
+
+    1. Item 1
+    2. Item 2
+
+# Automatic referencing
 
 Scientific reports and scientific publications require that you cite
 (aka reference) your sources, e.g.:
@@ -353,7 +392,7 @@ One way of [citing your sources](https://en.wikipedia.org/wiki/Citation)
 and creating a references cited section at the end of your report or
 paper is to do it by hand. That is, you go out and get the citation in a
 specific citation format (or citation style) and then copy and paste it
-into the text (and problably spend time fixing it follow the citation
+into the text (and probably spend time fixing it follow the citation
 style you are using).
 
 There are many citation styles:
@@ -404,10 +443,7 @@ are other advantages too, e.g., having all of your references in one
 database allows you to search for things quickly or to better memorize
 information about the references pertinent to your research.)
 
-Many people use [Mendeley](https://www.mendeley.com). If you’re
-interested in using Mendeley, you can talk to our TA Marco Maiolini (see
-the [syllabus](https://github.com/bambooforest/IntroDataScience) for
-contact information or talk to him in class!).
+Many people use [Mendeley](https://www.mendeley.com).
 
 As usual, there are a lot of different reference management software
 packages, e.g.:
@@ -459,6 +495,8 @@ the online and collaborative web interface
 
 -   <https://www.overleaf.com/learn>
 
+------------------------------------------------------------------------
+
 Now, one reason we are learning how to create R Markdown (scientific)
 reports is because like LaTeX and other typesetting software, we have a
 lot of control over the formatting and output of the reports. A big plus
@@ -491,7 +529,7 @@ head(ToothGrowth)
     ## 5  6.4   VC  0.5
     ## 6 10.0   VC  0.5
 
-The response variables len is the length of odontoblasts (cells
+The response variables `len` is the length of odontoblasts (cells
 responsible for tooth growth) in 60 guinea pigs. Each animal received
 one of three dose levels of vitamin C (0.5, 1, and 2 mg/day). By one of
 two delivery methods (sup):
@@ -513,11 +551,13 @@ qplot(dose, len, data=ToothGrowth, geom="point", col = supp)
 qplot(dose, len,data=ToothGrowth, geom="point", facets=.~supp, col = supp)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> It looks like
-the subgroup where orange juice was administered has higher teeth growth
-compared to the subgroup where ascorbic acid was administered.
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-## Back to automatic referencing
+It looks like the subgroup where orange juice was administered has
+higher teeth growth compared to the subgroup where ascorbic acid was
+administered.
+
+------------------------------------------------------------------------
 
 Given what I’ve said about BibTeX above, I tend to use it for automatic
 referencing in R Markdown reports. You will see this last line in the
@@ -526,7 +566,7 @@ header in the .Rmd file:
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(21 September, 2022)"
+    date: "(26 September, 2022)"
     output:
       github_document
     bibliography: 'references.bib'
@@ -571,6 +611,14 @@ edits).
 ![Getting the citation.](citation_example.png) I can give a demo in the
 class.
 
+# Additional resources
+
+## R Markdown
+
+-   <https://r4ds.had.co.nz/r-markdown.html>
+-   <https://www.earthdatascience.org/courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/>
+-   <https://bookdown.org/yihui/rmarkdown/>
+
 ## Reference management software
 
 Although [BibTeX](https://en.wikipedia.org/wiki/BibTeX) is stored in
@@ -607,7 +655,7 @@ Also, check with your university’s IT and perhaps they provide free
 access to versions that they pay the software license for and is
 available to students and faculty.
 
-Lastly, don’t hesitate to ask me if you have any questions.
+Lastly, don’t hesitate to ask me if you have any questions! (:
 
 # References
 

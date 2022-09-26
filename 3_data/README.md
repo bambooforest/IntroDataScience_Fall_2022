@@ -36,21 +36,12 @@ library(knitr)
 <!-- If you are looking at the source code (good on you!), then here is how one does a comment in Rmd. It's the same format as an HTML comment, i.e., between ASCII looking arrows. -->
 
 [Data](https://en.wikipedia.org/wiki/Data) is everywhere. Data are
-“facts and statistics collected together for reference or analysis”.
-Data is singular and plural – as per the
-[Dictionary.app](https://en.wikipedia.org/wiki/Dictionary_(software)):
-
-> > > “In Latin, data is the plural of datum and, historically and in
-> > > specialized scientific fields, it is also treated as a plural in
-> > > English, taking a plural verb, as in the data were collected and
-> > > classified. In modern nonscientific use, however, it is generally
-> > > not treated as a plural. Instead, it is treated as a mass noun,
-> > > similar to a word like information, which takes a singular verb.
-> > > Sentences such as data was collected over a number of years are
-> > > now widely accepted in standard English.”
+“**facts and statistics collected together for reference or analysis**”.
+Data is singular *and* plural.[^1]
 
 The noun “data” [comes from the
-1640s](https://www.etymonline.com/word/data):
+1640s](https://www.etymonline.com/word/data) and is derived from Latin
+*datum*, meaning “something that is given”:
 
 > > > “1640s,”a fact given or granted,” classical plural of datum, from
 > > > Latin datum “(thing) given,” neuter past participle of dare “to
@@ -66,31 +57,44 @@ It’s more recent meaning with regard to computing is from the 1940s:
 > > > is from 1954; data-base (also database) “structured collection of
 > > > data in a computer” is by 1962; data-entry is by 1970.”
 
-Data versus information:
+Data is different than information. Data are raw and unorganized facts.
+[Information](https://www.etymonline.com/word/information) is that has
+been processed, structured, organized, and/or presented within a contact
+that make the raw data useful and interpretable. Having context about
+data, i.e., information, can help us make decisions, inferences anout
+the data, etc.
 
 -   <https://www.diffen.com/difference/Data_vs_Information>
 
-which notes:
+| Data                                         | Information                                              |
+|----------------------------------------------|----------------------------------------------------------|
+| Raw facts, statistics                        | Processed data, organized                                |
+| No context, unorganized                      | Data with context to facts, statistics                   |
+| Numbers, text, etc. with no inherent meaning | Value-added data (e.g., summarized, organized, analyzed) |
 
-> > > “Data are simply facts or figures —- bits of information, but not
-> > > information itself. When data are processed, interpreted,
-> > > organized, structured or presented so as to make them meaningful
-> > > or useful, they are called information. Information provides
-> > > context for data.”
+Or
+[visually](https://twitter.com/beco/status/717112009385357316/photo/1):
 
-Furthermore:
+![Data vs information](CfOwObSVAAAkC2F.jpeg)
 
-> > > “Data is raw, unorganized facts that need to be processed. Data
-> > > can be something simple and seemingly random and useless until it
-> > > is organized.”
+Or in code using the built in [Airline passengers
+dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/AirPassengers.html).
+The data:
 
-And:
+``` r
+head(AirPassengers)
+```
 
-> > > “When data is processed, organized, structured or presented in a
-> > > given context so as to make it useful, it is called information.”
+    ## [1] 112 118 132 129 121 135
 
-The noun [information](https://www.etymonline.com/word/information) is
-much older than data.
+[Information derived from the AirPassengers
+dataset](https://rpubs.com/emb90/137525):
+
+``` r
+plot(AirPassengers, ylab="Passengers (1000s)", type="o", pch =20)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 Let’s look at some examples. Is it *data* or *information*?
 
@@ -947,3 +951,14 @@ Generation in r*. <https://yihui.org/knitr/>.
 </div>
 
 </div>
+
+[^1]: As per the
+    [Dictionary.app](https://en.wikipedia.org/wiki/Dictionary_(software)):
+    “In Latin, data is the plural of datum and, historically and in
+    specialized scientific fields, it is also treated as a plural in
+    English, taking a plural verb, as in the data were collected and
+    classified. In modern nonscientific use, however, it is generally
+    not treated as a plural. Instead, it is treated as a mass noun,
+    similar to a word like information, which takes a singular verb.
+    Sentences such as data was collected over a number of years are now
+    widely accepted in standard English.”
