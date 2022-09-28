@@ -1,7 +1,7 @@
 Writing scientific reports
 ================
 Steven Moran
-(26 September, 2022)
+(28 September, 2022)
 
 -   <a href="#scientific-reports-why"
     id="toc-scientific-reports-why">Scientific reports: why?</a>
@@ -248,11 +248,13 @@ generating this report. R Markdown uses
 file should be generated, e.g., I am telling it to produce a
 [github_document](https://rmarkdown.rstudio.com/github_document_format.html):
 
+    ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       github_document
+    ---
 
 This is because then the output (i.e., the .md file) will display nicely
 in the browser. There are many options for different output formats:
@@ -263,41 +265,49 @@ in the browser. There are many options for different output formats:
 For example, you can set your report to create an [HTML
 document](https://bookdown.org/yihui/rmarkdown/html-document.html):
 
+    ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
-      html_document 
+      html_document
+    ---
 
 Or maybe you want to create a [PDF
 document](https://bookdown.org/yihui/rmarkdown/pdf-document.html) of
 this report, e.g., so that you can submit it for publication?
 
+    ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       pdf_document
+    ---
 
 Or maybe you want it to come out as a [Word
 document](https://bookdown.org/yihui/rmarkdown/word-document.html)
 because you want to share it with someone who only works in Word (e.g.,
 one of my old professors):
 
+    ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       word_document
+    ---
 
 You can even create for example slides, such as in
 [PowerPoint](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html):
 
+    ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       powerpoint_presentation
+    ---
 
 Regarding the header, it also has many options, including for example
 that a [table of contents
@@ -308,7 +318,7 @@ below). So, for example, this file specifies the header as:
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       github_document:
           toc: true
@@ -566,7 +576,7 @@ header in the .Rmd file:
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(26 September, 2022)"
+    date: "(28 September, 2022)"
     output:
       github_document
     bibliography: 'references.bib'

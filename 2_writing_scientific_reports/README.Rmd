@@ -137,11 +137,13 @@ You can also use the same file to generate other output formats!
 In the setup chunk above (not shown in this .md file; only in the [.Rmd file](https://github.com/bambooforest/IntroDataScience/blob/main/2_writing_scientific_reports/README.Rmd#L1-L9) that you will work with and edit directly), I have defined in the [file header](https://en.wikipedia.org/wiki/File_format#File_header) the [metadata](https://en.wikipedia.org/wiki/Metadata) that specifies for example the `title`, `author`, `date`, and `output` format for generating this report. R Markdown uses [YAML](https://en.wikipedia.org/wiki/YAML) to [configure](https://en.wikipedia.org/wiki/Configuration_file) how this file should be generated, e.g., I am telling it to produce a [github_document](https://rmarkdown.rstudio.com/github_document_format.html):
 
 ```
+---
 title: "Writing scientific reports"
 author: "Steven Moran"
 date: "(`r format(Sys.time(), '%d %B, %Y')`)"
 output:
   github_document
+---
 ```  
 
 This is because then the output (i.e., the .md file) will display nicely in the browser. There are many options for different output formats:
@@ -152,41 +154,49 @@ This is because then the output (i.e., the .md file) will display nicely in the 
 For example, you can set your report to create an [HTML document](https://bookdown.org/yihui/rmarkdown/html-document.html):
 
 ```
+---
 title: "Writing scientific reports"
 author: "Steven Moran"
 date: "(`r format(Sys.time(), '%d %B, %Y')`)"
 output:
-  html_document 
+  html_document
+---
 ```  
 
 Or maybe you want to create a [PDF document](https://bookdown.org/yihui/rmarkdown/pdf-document.html) of this report, e.g., so that you can submit it for publication?
 
 ```
+---
 title: "Writing scientific reports"
 author: "Steven Moran"
 date: "(`r format(Sys.time(), '%d %B, %Y')`)"
 output:
   pdf_document
+---
 ```  
 
 Or maybe you want it to come out as a [Word document](https://bookdown.org/yihui/rmarkdown/word-document.html) because you want to share it with someone who only works in Word (e.g., one of my old professors):
 
 ```
+---
 title: "Writing scientific reports"
 author: "Steven Moran"
 date: "(`r format(Sys.time(), '%d %B, %Y')`)"
 output:
   word_document
+---
 ```  
 
 You can even create for example slides, such as in [PowerPoint](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html):
 
 ```
+---
 title: "Writing scientific reports"
 author: "Steven Moran"
 date: "(`r format(Sys.time(), '%d %B, %Y')`)"
 output:
   powerpoint_presentation
+---
 ```  
 
 Regarding the header, it also has many options, including for example that a [table of contents (TOC)](https://en.wikipedia.org/wiki/Table_of_contents) is created and that the document should automatic citation referencing (more on this below). So, for example, this file specifies the header as:
