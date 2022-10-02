@@ -1,7 +1,7 @@
 Data
 ================
 Steven Moran
-(22 September, 2022)
+(02 October, 2022)
 
 -   <a href="#what-is-data" id="toc-what-is-data">What is data?</a>
 -   <a href="#structured-vs-unstructured-data"
@@ -95,6 +95,10 @@ plot(AirPassengers, ylab="Passengers (1000s)", type="o", pch =20)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+What’s the difference in this example?
+
+------------------------------------------------------------------------
 
 Let’s look at some examples. Is it *data* or *information*?
 

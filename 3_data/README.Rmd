@@ -56,6 +56,10 @@ head(AirPassengers)
 plot(AirPassengers, ylab="Passengers (1000s)", type="o", pch =20)
 ```
 
+What's the difference in this example?
+
+***
+
 Let's look at some examples. Is it *data* or *information*?
 
 1. a student's test score
