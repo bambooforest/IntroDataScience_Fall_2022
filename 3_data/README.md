@@ -23,7 +23,7 @@ Steven Moran
     -   <a href="#scales-of-measurement" id="toc-scales-of-measurement">Scales
         of measurement</a>
 -   <a href="#data-structures" id="toc-data-structures">Data structures</a>
--   <a href="#file-formants" id="toc-file-formants">File formants</a>
+-   <a href="#file-formats" id="toc-file-formats">File formats</a>
 -   <a href="#tabular-data" id="toc-tabular-data">Tabular data</a>
 -   <a href="#metadata" id="toc-metadata">Metadata</a>
 -   <a href="#data-archiving" id="toc-data-archiving">Data archiving</a>
@@ -73,7 +73,7 @@ information. Data are raw and unorganized facts.
 [Information](https://www.etymonline.com/word/information) is that has
 been processed, structured, organized, and/or presented within a contact
 that make the raw data useful and interpretable. Having context about
-data, i.e., information, can help us make decisions, inferences anout
+data, i.e., information, can help us make decisions, inferences about
 the data, etc.
 
 -   <https://www.diffen.com/difference/Data_vs_Information>
@@ -717,11 +717,11 @@ structures to implement. R has several data structures:
 
 -   <http://adv-r.had.co.nz/Data-structures.html>
 
-[Data transmforation](https://en.wikipedia.org/wiki/Data_transformation)
+[Data transformation](https://en.wikipedia.org/wiki/Data_transformation)
 is the process of converting one data format to another (whether
 unstructured or structured). This is discussed under data wrangling.
 
-# File formants
+# File formats
 
 [File formants](https://en.wikipedia.org/wiki/File_format) are
 standardized ways of encoding digital data for storage as computer
@@ -1011,7 +1011,7 @@ research and reproducibility, e.g.:
 
 Ask me more, if you have questions or it is relevant to your research!
 For example, I have collected a lot of data on endangered languages,
-which I digitially archive in an attempt to preserve it for future
+which I digitally archive in an attempt to preserve it for future
 speakers and researchers.
 
 # Open data
