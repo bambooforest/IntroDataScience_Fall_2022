@@ -128,6 +128,12 @@ Now let’s create some
 the [AirPassengers dataset](https://rpubs.com/emb90/137525) by plotting
 the raw data with labeled axes:
 
+``` r
+plot(AirPassengers, ylab = "Passengers (1000s)", type = "o", pch = 20)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
 What does the plot tell us about the raw data?
 
 ------------------------------------------------------------------------
