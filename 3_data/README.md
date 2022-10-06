@@ -1,7 +1,7 @@
 Data
 ================
 Steven Moran
-(05 October, 2022)
+(06 October, 2022)
 
 -   <a href="#what-is-data" id="toc-what-is-data">What is data?</a>
 -   <a href="#structured-versus-unstructured-data"
@@ -127,12 +127,6 @@ Now let’s create some
 [information](https://www.etymonline.com/word/information) derived from
 the [AirPassengers dataset](https://rpubs.com/emb90/137525) by plotting
 the raw data with labeled axes:
-
-``` r
-plot(AirPassengers, ylab="Passengers (1000s)", type="o", pch =20)
-```
-
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 What does the plot tell us about the raw data?
 

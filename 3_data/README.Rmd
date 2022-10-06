@@ -73,7 +73,6 @@ str(AirPassengers)
 Now let's create some [information](https://www.etymonline.com/word/information) derived from the [AirPassengers dataset](https://rpubs.com/emb90/137525) by plotting the raw data with labeled axes:
 
 ```{r}
-plot(AirPassengers, ylab="Passengers (1000s)", type="o", pch =20)
 ```
 
 What does the plot tell us about the raw data?
