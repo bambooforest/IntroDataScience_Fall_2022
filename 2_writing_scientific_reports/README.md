@@ -1,7 +1,7 @@
 Writing scientific reports
 ================
 Steven Moran
-(28 September, 2022)
+(06 October, 2022)
 
 -   <a href="#scientific-reports-why"
     id="toc-scientific-reports-why">Scientific reports: why?</a>
@@ -70,6 +70,7 @@ data, changing code, etc., we find ourselves in science in a
 [replication crisis](https://en.wikipedia.org/wiki/Replication_crisis).
 Here are some resources that discuss this issue:
 
+-   <https://doi.org/10.1371/journal.pmed.1004085>
 -   <https://www.nature.com/articles/533452a>
 -   <https://www.pnas.org/content/115/11/2628>
 -   <https://www.vox.com/future-perfect/21504366/science-replication-crisis-peer-review-statistics>
@@ -251,7 +252,7 @@ file should be generated, e.g., I am telling it to produce a
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       github_document
     ---
@@ -268,7 +269,7 @@ document](https://bookdown.org/yihui/rmarkdown/html-document.html):
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       html_document
     ---
@@ -280,7 +281,7 @@ this report, e.g., so that you can submit it for publication?
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       pdf_document
     ---
@@ -293,7 +294,7 @@ one of my old professors):
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       word_document
     ---
@@ -304,7 +305,7 @@ You can even create for example slides, such as in
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       powerpoint_presentation
     ---
@@ -318,7 +319,7 @@ below). So, for example, this file specifies the header as:
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       github_document:
           toc: true
@@ -576,7 +577,7 @@ header in the .Rmd file:
     ---
     title: "Writing scientific reports"
     author: "Steven Moran"
-    date: "(28 September, 2022)"
+    date: "(06 October, 2022)"
     output:
       github_document
     bibliography: 'references.bib'

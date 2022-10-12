@@ -41,6 +41,7 @@ Obviously, different people in different professions have different workflows, o
 
 Now, given all the different ways of doing things, and lack of access to data, changing code, etc., we find ourselves in science in a [replication crisis](https://en.wikipedia.org/wiki/Replication_crisis). Here are some resources that discuss this issue:
 
+* https://doi.org/10.1371/journal.pmed.1004085
 * https://www.nature.com/articles/533452a
 * https://www.pnas.org/content/115/11/2628
 * https://www.vox.com/future-perfect/21504366/science-replication-crisis-peer-review-statistics
