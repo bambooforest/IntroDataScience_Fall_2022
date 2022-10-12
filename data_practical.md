@@ -1,12 +1,14 @@
 Instructions for your data practical
 ================
 Steven Moran
-(21 September, 2022)
+(12 October, 2022)
 
 -   <a href="#overview" id="toc-overview">Overview</a>
 -   <a href="#learning-objectives" id="toc-learning-objectives">Learning
     objectives</a>
 -   <a href="#requirements" id="toc-requirements">Requirements</a>
+-   <a href="#where-to-find-data" id="toc-where-to-find-data">Where to find
+    data?</a>
 
 # Overview
 
@@ -125,3 +127,36 @@ The learning objectives for your data practical include:
 -   You must have an introduction that introduces your work.
 
 -   You must present and discuss your results and provide a conclusion.
+
+# Where to find data?
+
+As with most things in data science, one of your best bets is to [google
+it](https://www.google.com). In other words, a search engine is one of
+the most powerful tools you have as a data scientist.
+
+Whether it’s [Google](https://www.google.com),
+[Bing](https://www.bing.com), [Yahoo](https://www.yahoo.com),
+[Baidu](https://www.baidu.com), [DuckDuckGo](https://duckduckgo.com), or
+whatever, internet searches for data, information, answers to why your
+code isn’t working, etc., is probably your most important tool.
+
+Regarding data, there are lots of options depending on what kind of data
+you’re looking for. First, do some internet searches for it. Keywords
+like “open data”, “raw data”, may be helpful.
+
+Nowadays, most scientific journal publications require that some form of
+the data analyzed be made as supplementary materials as part of the
+publication. Popular online platforms for scientific data include, but
+are not limited to:
+
+-   <https://zenodo.org>
+-   <https://osf.io>
+-   <https://eosc-portal.eu>
+
+Many governments provide openly published data. Try searching for them!
+
+There are also an increasing number of journals or scientific conference
+venues that publish datasets, e.g.:
+
+-   <https://www.nature.com/sdata>
+-   <https://lrec2020.lrec-conf.org/en/shared-lrs/>
