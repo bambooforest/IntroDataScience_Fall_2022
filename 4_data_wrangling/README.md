@@ -2,7 +2,7 @@ Data wrangling
 ================
 Steven Moran
 
-06 October, 2022
+12 October, 2022
 
 -   <a href="#overview" id="toc-overview">Overview</a>
 -   <a href="#data-wrangling-in-r" id="toc-data-wrangling-in-r">Data
@@ -15,10 +15,12 @@ Steven Moran
         -   <a href="#mutate" id="toc-mutate"><code>mutate()</code></a>
         -   <a href="#filter" id="toc-filter"><code>filter()</code></a>
         -   <a href="#summarize" id="toc-summarize"><code>summarize()</code></a>
--   <a href="#databases" id="toc-databases">Databases</a>
+-   <a href="#databases-advanced" id="toc-databases-advanced">Databases
+    (advanced)</a>
     -   <a href="#overview-1" id="toc-overview-1">Overview</a>
     -   <a href="#joining-tables" id="toc-joining-tables">Joining tables</a>
--   <a href="#code-style-" id="toc-code-style-">Code style 💩</a>
+-   <a href="#code-style--advanced" id="toc-code-style--advanced">Code style
+    💩 (advanced)</a>
     -   <a href="#code-style-in-r" id="toc-code-style-in-r">Code style in R</a>
     -   <a href="#stylr-and-lintr" id="toc-stylr-and-lintr">stylr and lintr</a>
     -   <a href="#tests" id="toc-tests">Tests</a>
@@ -42,12 +44,13 @@ library(gapminder)
 [Data wrangling](https://en.wikipedia.org/wiki/Data_wrangling) is the
 process (or processes) of cleaning, structuring (aka transforming), and
 enriching data into a format that allows one to do things like
-visualization and analysis. Typically, [raw
-data](https://en.wikipedia.org/wiki/Raw_data) is converted into
-structured data. During this process, raw data often need to be cleaned,
-organized, and transformed into formats that are allow for analysis,
-i.e., converted into data formats or data structures that can be fed
-directly into functions for coding or statistical analysis.
+visualization and analysis.
+
+Typically, [raw data](https://en.wikipedia.org/wiki/Raw_data) is
+converted into structured data. During this process, raw data often need
+to be cleaned, organized, and transformed into formats that allow for
+data analysis, i.e., converted into data formats or data structures that
+can be fed directly into functions for code or statistical analysis.
 
 Here’s a [visualization of the
 process](https://en.wikipedia.org/wiki/Data_wrangling#/media/File:Data_Wrangling_From_Messy_To_Clean_Data_Management.jpg)
@@ -56,48 +59,55 @@ of converting raw data to formatted (or structured) data:
 ![Visualization of data
 wrangling](figures/Data_Wrangling_From_Messy_To_Clean_Data_Management.jpg)
 
+------------------------------------------------------------------------
+
 The steps in data wrangling, broadly, include:
 
--   **Discovery your data** – look at and think about your data and
-    maybe come up with some questions to ask
+-   **Explore your data** – look at and think about your data and maybe
+    come up with some questions to ask.
 -   **Structure your data** – organize the data (necessarily if its in a
     raw format) and structure it for the functions or methods that will
-    take it as input
+    take it as input.
 -   **Clean your data** – in the process of dealing with data
     (especially raw data), you may need to clean it, e.g., get all the
-    dates into the same format (Feb 1 vs 2/1 vs 1/2 etc.)
+    dates into the same format (Feb 1 vs 2/1 vs 1/2 etc.).
 -   **Enrich your data** – do you need more data for your analysis?
     E.g., you have a list of languages but you need to know where they
-    are spoken to plot them on a world map
+    are spoken to plot them on a world map.
 -   **Validate your data** – basically making sure that your structured
     and cleaned data is actually structured and clean – also commonly
-    refereed to as [software
-    testing](https://en.wikipedia.org/wiki/Software_testing)
--   **Publish your data** – and publish your analysis, findings, etc.,
-    for consumption, reproducibility, etc.
+    refereed to as [data
+    validation](https://en.wikipedia.org/wiki/Data_validation) and in
+    software development, [software
+    testing](https://en.wikipedia.org/wiki/Software_testing).
+-   **Publish your data** – publish your analysis, findings, etc., for
+    consumption, reproducibility, archiving, etc.
 
 # Data wrangling in R
 
 Here is a visualization of how the data science workflow works in the
-book [R for Data Science](https://r4ds.had.co.nz/index.html):
+book [R for Data Science](https://r4ds.had.co.nz/index.html) within the
+so-called [tidyverse](https://www.tidyverse.org):
 
 -   <https://r4ds.had.co.nz/introduction.html>
 
+![Typical data science project workflow](figures/WickhamGrolemund.png)
+
 That is you:
 
-1.  **Load**, aka “import”, your data into R – this entails that the
+1.  **Load** (aka “import”) your data into R – this entails that the
     data is already in a loadable format (e.g., text, CSV file, Excel
-    spreadsheet, relational database)
+    spreadsheet, relational database).
 2.  **Tidy** the data – in terms of the R
     [tidyverse](https://www.tidyverse.org), i.e., a set of R packages
-    aimed to make data science easy (more on this below)
+    aimed to make data science easy (more on this below).
 3.  **Transform** your data – select the data of interest, extend your
-    data by adding other data source(s), summarize results
+    data by adding other data source(s), summarize results.
 4.  **Visualize** your data – create plots to explore and interact with
-    your data and to develop questions to answer
-5.  **Model** your data – to answer questions and hypotheses
+    your data and to develop questions to answer.
+5.  **Model** your data – to answer questions and hypotheses.
 6.  **Communicate** your results – through scientific reports like we
-    the ones we are developing in class
+    the ones we are developing in class.
 
 All of these step fall under the rubric of [computer
 programming](https://en.wikipedia.org/wiki/Computer_programming). You
@@ -127,6 +137,254 @@ The "tidying" and "transforming" of your data is commonly referred to as "data w
 
 when your data is tidy, each column is a variable, and each row is an observation. Tidy data is important because the consistent structure lets you focus your struggle on questions about the data, not fighting to get the data into the right form for different functions.
 -->
+
+------------------------------------------------------------------------
+
+The [R](https://en.wikipedia.org/wiki/R_(programming_language))
+programming language has a long history. Here are some resources about
+it:
+
+-   <https://bookdown.org/rdpeng/rprogdatascience/history-and-overview-of-r.html>
+-   <https://medium.com/@ArtisOne/r-overview-and-history-75ecb036d0df>
+
+Primary R is available via the [Comprehensive R Archive
+Network](https://cran.r-project.org) and the [R project
+website](https://www.r-project.org).
+
+The [base R
+package](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html)
+contains the basic functions for reading, writing, accessing, and
+working with data. Here is a tutorial:
+
+-   <https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf>
+
+In this course we will also use the `tidyverse` library, which contains
+a set of functions that have corresponding base R functions. Here is an
+overview:
+
+-   <https://tavareshugo.github.io/data_carpentry_extras/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html>
+
+Let’s look at some examples. First we will load some fake data that
+we’ve created that includes the height and weight of some made up cats
+and dogs.
+
+``` r
+data1 <- read_table('datasets/fake.txt')
+data1
+```
+
+    ## # A tibble: 15 × 3
+    ##    height weight animal
+    ##     <dbl>  <dbl> <chr> 
+    ##  1     58    115 cat   
+    ##  2     59    117 cat   
+    ##  3     60    120 dog   
+    ##  4     61    123 dog   
+    ##  5     62    126 cat   
+    ##  6     63    129 dog   
+    ##  7     64    132 cat   
+    ##  8     65    135 dog   
+    ##  9     66    139 dog   
+    ## 10     67    142 cat   
+    ## 11     68    146 dog   
+    ## 12     69    150 cat   
+    ## 13     70    154 dog   
+    ## 14     71    159 cat   
+    ## 15     72    164 dog
+
+Now if we want to subset this data in base R, we access it by its name
+and then the \[row, column\] syntax.
+
+``` r
+# First row, first column
+data1[1,1]
+```
+
+    ## # A tibble: 1 × 1
+    ##   height
+    ##    <dbl>
+    ## 1     58
+
+``` r
+# Second and third columns (notice row is blank)
+data1[, 2:3]
+```
+
+    ## # A tibble: 15 × 2
+    ##    weight animal
+    ##     <dbl> <chr> 
+    ##  1    115 cat   
+    ##  2    117 cat   
+    ##  3    120 dog   
+    ##  4    123 dog   
+    ##  5    126 cat   
+    ##  6    129 dog   
+    ##  7    132 cat   
+    ##  8    135 dog   
+    ##  9    139 dog   
+    ## 10    142 cat   
+    ## 11    146 dog   
+    ## 12    150 cat   
+    ## 13    154 dog   
+    ## 14    159 cat   
+    ## 15    164 dog
+
+``` r
+# First two rows, all columns (notice column is blank -- don't forget the comma!)
+data1[1:2, ]
+```
+
+    ## # A tibble: 2 × 3
+    ##   height weight animal
+    ##    <dbl>  <dbl> <chr> 
+    ## 1     58    115 cat   
+    ## 2     59    117 cat
+
+``` r
+# Rows 1, 2, 10 and columns 1 and 2... 
+data1[c(1,2,10), 1:2]
+```
+
+    ## # A tibble: 3 × 2
+    ##   height weight
+    ##    <dbl>  <dbl>
+    ## 1     58    115
+    ## 2     59    117
+    ## 3     67    142
+
+In the tidyverse, we would use the `dplyr` library and the so-called
+“pipe” command `%>%` to pipe the data into some number of functions. For
+example:
+
+``` r
+data1 %>% select(weight, height)
+```
+
+    ## # A tibble: 15 × 2
+    ##    weight height
+    ##     <dbl>  <dbl>
+    ##  1    115     58
+    ##  2    117     59
+    ##  3    120     60
+    ##  4    123     61
+    ##  5    126     62
+    ##  6    129     63
+    ##  7    132     64
+    ##  8    135     65
+    ##  9    139     66
+    ## 10    142     67
+    ## 11    146     68
+    ## 12    150     69
+    ## 13    154     70
+    ## 14    159     71
+    ## 15    164     72
+
+``` r
+data1 %>% slice(1,2) # slice takes row numbers
+```
+
+    ## # A tibble: 2 × 3
+    ##   height weight animal
+    ##    <dbl>  <dbl> <chr> 
+    ## 1     58    115 cat   
+    ## 2     59    117 cat
+
+``` r
+data1 %>% slice(1:2) # colon indicates range
+```
+
+    ## # A tibble: 2 × 3
+    ##   height weight animal
+    ##    <dbl>  <dbl> <chr> 
+    ## 1     58    115 cat   
+    ## 2     59    117 cat
+
+``` r
+data1 %>% slice(1:5) # colon indicates range
+```
+
+    ## # A tibble: 5 × 3
+    ##   height weight animal
+    ##    <dbl>  <dbl> <chr> 
+    ## 1     58    115 cat   
+    ## 2     59    117 cat   
+    ## 3     60    120 dog   
+    ## 4     61    123 dog   
+    ## 5     62    126 cat
+
+``` r
+data1 %>% slice(1,2,10)
+```
+
+    ## # A tibble: 3 × 3
+    ##   height weight animal
+    ##    <dbl>  <dbl> <chr> 
+    ## 1     58    115 cat   
+    ## 2     59    117 cat   
+    ## 3     67    142 cat
+
+``` r
+# Now subset the columns you want
+data1 %>% slice(1:2) %>% select(2,3) # by their "number"
+```
+
+    ## # A tibble: 2 × 2
+    ##   weight animal
+    ##    <dbl> <chr> 
+    ## 1    115 cat   
+    ## 2    117 cat
+
+``` r
+data1 %>% slice(1:2) %>% select(weight, height) # or by their name
+```
+
+    ## # A tibble: 2 × 2
+    ##   weight height
+    ##    <dbl>  <dbl>
+    ## 1    115     58
+    ## 2    117     59
+
+In base R if you want to access columns, you can do things like:
+
+``` r
+data1$height # get a column by name
+```
+
+    ##  [1] 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+
+``` r
+data1[data1$height > 160, ] # grab height greater than 160 -- DON'T FORGET COMMA!
+```
+
+    ## # A tibble: 0 × 3
+    ## # … with 3 variables: height <dbl>, weight <dbl>, animal <chr>
+
+``` r
+# data1[data1$height > 160] # this fails and makes one pull their hair out
+data1[data1$height > 160 & data1$animal == 'cat', ] # cats over 160cm
+```
+
+    ## # A tibble: 0 × 3
+    ## # … with 3 variables: height <dbl>, weight <dbl>, animal <chr>
+
+With dplyr you would do this:
+
+``` r
+data1 %>% filter(height > 160) %>% filter(animal == 'cat')
+```
+
+    ## # A tibble: 0 × 3
+    ## # … with 3 variables: height <dbl>, weight <dbl>, animal <chr>
+
+``` r
+data1 %>% filter(animal == 'cat') %>% filter(height > 160)
+```
+
+    ## # A tibble: 0 × 3
+    ## # … with 3 variables: height <dbl>, weight <dbl>, animal <chr>
+
+They are two different approaches to data wrangling. Given its ease of
+use, we will focus here on the tidyverse approach.
 
 ## tidyverse
 
@@ -1256,7 +1514,7 @@ athletes %>%
     ## 10 Canada                  4
     ## # … with 78 more rows
 
-# Databases
+# Databases (advanced)
 
 ## Overview
 
@@ -1732,7 +1990,7 @@ left_join(gapminder, sex_ratios)
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.      107.
     ## # … with 1,694 more rows
 
-# Code style 💩
+# Code style 💩 (advanced)
 
 Let’s talk about (code) style. According to the [dictionary
 app](https://en.wikipedia.org/wiki/Dictionary_(software)) on my

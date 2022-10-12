@@ -1,0 +1,16 @@
+height weight animal
+58 115 cat
+59 117 cat
+60 120 dog
+61 123 dog
+62 126 cat
+63 129 dog
+64 132 cat
+65 135 dog
+66 139 dog
+67 142 cat
+68 146 dog
+69 150 cat
+70 154 dog
+71 159 cat
+72 164 dog
