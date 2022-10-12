@@ -2,11 +2,11 @@ Data visualization I
 ================
 Steven Moran & Alena Witzlack-Makarevich
 
-06 October, 2022
+12 October, 2022
 
--   <a href="#recap-and-data-wrangling-continued"
-    id="toc-recap-and-data-wrangling-continued">Recap and data wrangling
-    continued</a>
+-   <a href="#data-formats-for-visualization"
+    id="toc-data-formats-for-visualization">Data formats for
+    visualization</a>
     -   <a href="#tabular-data" id="toc-tabular-data">Tabular data</a>
     -   <a href="#wide-vs-long-table-formats"
         id="toc-wide-vs-long-table-formats">Wide vs long table formats</a>
@@ -49,7 +49,7 @@ library(knitr)
 library(dslabs)
 ```
 
-# Recap and data wrangling continued
+# Data formats for visualization
 
 ## Tabular data
 
@@ -627,8 +627,11 @@ Consider for example you have some data:
 
 Or are you trying to visualize – or model – a [statistical
 distribution](https://en.wikipedia.org/wiki/Probability_distribution)?
-How many variables are there? What are your independent and dependent
-variables? Do you have any? Do you have a hypothesis?
+Then you might ask:
+
+-   How many variables are there?
+-   What are your independent and dependent variables?
+-   Do you have any? Do you have a hypothesis?
 
 A picture of the workflow with `tidyverse` libraries (`readr`, `tidyr`,
 etc.) is given below. For “model” it will depend on what type of
@@ -641,9 +644,9 @@ statistical modeling in R!
 
 The R tidyverse visualization library `ggplot2` is based on the
 principles outlined in *The Grammar of Graphics*, a classic text on data
-visualizations, by Leland Wilkinson \[Leland (1999)\][^1]. The layered
-*Grammar of Graphics* is where Wickham (2009) implements Wilkinson’s
-principles, and typology, of graphic design into R.
+visualizations, by Leland Wilkinson (Leland 1999). The layered *Grammar
+of Graphics* is where Wickham (2009) implements Wilkinson’s principles,
+and typology, of graphic design into R.[^1]
 
 Each layer/component of the *Grammar of Graphics* has a special name in
 `ggplot2`, visualized as:
@@ -959,4 +962,4 @@ Generation in r*. <https://yihui.org/knitr/>.
 
 </div>
 
-[^1]: Thus, the “gg”.
+[^1]: Thus, the “gg” in ggplot.

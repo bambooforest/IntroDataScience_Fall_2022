@@ -19,7 +19,7 @@ library(dslabs)
 ```
 
 
-# Recap and data wrangling continued
+# Data formats for visualization
 
 ## Tabular data
 
@@ -324,7 +324,11 @@ Consider for example you have some data:
 * How are the data types usually visualized (including if more than one -- in relation to each other)?
 * On which axes should they be plotted?
 
-Or are you trying to visualize -- or model -- a [statistical distribution](https://en.wikipedia.org/wiki/Probability_distribution)? How many variables are there? What are your independent and dependent variables? Do you have any? Do you have a hypothesis?
+Or are you trying to visualize -- or model -- a [statistical distribution](https://en.wikipedia.org/wiki/Probability_distribution)? Then you might ask:
+
+* How many variables are there? 
+* What are your independent and dependent variables? 
+* Do you have any? Do you have a hypothesis?
 
 A picture of the workflow with `tidyverse` libraries (`readr`, `tidyr`, etc.) is given below. For "model" it will depend on what type of statistical *model(s)* you are using -- there are numerous libraries for statistical modeling in R!
 
@@ -332,7 +336,7 @@ A picture of the workflow with `tidyverse` libraries (`readr`, `tidyr`, etc.) is
 
 ## Layered graphics
 
-The R tidyverse visualization library `ggplot2` is based on the principles outlined in *The Grammar of Graphics*, a classic text on data visualizations, by Leland Wilkinson [@Leland1999][^1]. The layered *Grammar of Graphics* is where @Wickham2009 implements Wilkinson's principles, and typology, of graphic design into R.
+The R tidyverse visualization library `ggplot2` is based on the principles outlined in *The Grammar of Graphics*, a classic text on data visualizations, by Leland Wilkinson [@Leland1999]. The layered *Grammar of Graphics* is where @Wickham2009 implements Wilkinson's principles, and typology, of graphic design into R.^[Thus, the "gg" in ggplot.]
 
 Each layer/component of the *Grammar of Graphics* has a special name in `ggplot2`, visualized as:
 
@@ -496,5 +500,3 @@ geom_point() +
 
 
 # References and footnotes
-
-[^1]: Thus, the "gg".
