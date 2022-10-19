@@ -2,7 +2,7 @@
 title: "Titanic case study in data finding and wrangling"
 author: "Steven Moran"
 date: "2022-10-14"
-output: html_document
+output: github_document
 ---
 
 Recall the lecture on [data types in computer programming](https://github.com/bambooforest/IntroDataScience/tree/main/3_data#data-types-in-computer-programming) and [data types in statistics](https://github.com/bambooforest/IntroDataScience/tree/main/3_data#data-types-in-statistics).
