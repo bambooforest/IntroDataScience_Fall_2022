@@ -101,6 +101,10 @@ There are also so-called "open data handbooks" that give more details about thes
 * https://mitpress.mit.edu/books/open-handbook-linguistic-data-management
 * https://opendatahandbook.org
 
+Lastly, a great resource about scientific writing and publishing is available here:
+
+* https://plos.org/resources/writing-center/
+
 ***
 
 In this course, we will be using R and R Markdown reports. This gives us flexibility to bring together code and text into a single document, which as discussed above, we can compile easily into different output formats. And we can also incorporate scientific writing, e.g., using automatic citation software (discussed below).
