@@ -29,6 +29,7 @@ Steven Moran
 -   <a href="#tabular-data" id="toc-tabular-data">Tabular data</a>
 -   <a href="#metadata" id="toc-metadata">Metadata</a>
 -   <a href="#data-archiving" id="toc-data-archiving">Data archiving</a>
+-   <a href="#exercises" id="toc-exercises">Exercises</a>
 -   <a href="#references-and-footnotes"
     id="toc-references-and-footnotes">References and footnotes</a>
 
@@ -285,9 +286,10 @@ Finance?
 
 Are you interested in [data
 journalism](https://en.wikipedia.org/wiki/Data_journalism)? Try
-FiveThirtyEight:
+FiveThirtyEight or The Pudding:
 
 -   <https://data.fivethirtyeight.com>
+-   <https://pudding.cool>
 
 [DBpedia](https://en.wikipedia.org/wiki/DBpedia) is a knowledge base
 built on [Wikipedia](https://en.wikipedia.org/wiki/Wikipedia):
@@ -1150,6 +1152,12 @@ Ask me more, if you have questions or it is relevant to your research!
 For example, I have collected a lot of data on endangered languages,
 which I digitally archive in an attempt to preserve it for future
 speakers and researchers.
+
+# Exercises
+
+Understanding data types is important for data visualization and
+statistical modeling. Check out the case studies on [data behind the
+plots](../case_studies/data_behind_the_plot/).
 
 # References and footnotes
 

@@ -499,4 +499,9 @@ geom_point() +
 * https://clauswilke.com/dataviz/
 
 
+# Exercises
+
+Understanding data types is important for data visualization and statistical modeling. Check out the case studies on [data behind the plots](../case_studies/data_behind_the_plot/).
+
+
 # References and footnotes

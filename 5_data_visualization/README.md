@@ -2,7 +2,7 @@ Data visualization I
 ================
 Steven Moran & Alena Witzlack-Makarevich
 
-12 October, 2022
+26 October, 2022
 
 -   <a href="#data-formats-for-visualization"
     id="toc-data-formats-for-visualization">Data formats for
@@ -33,6 +33,7 @@ Steven Moran & Alena Witzlack-Makarevich
             diamonds data</a>
 -   <a href="#additional-resources" id="toc-additional-resources">Additional
     resources</a>
+-   <a href="#exercises" id="toc-exercises">Exercises</a>
 -   <a href="#references-and-footnotes"
     id="toc-references-and-footnotes">References and footnotes</a>
 
@@ -904,6 +905,12 @@ geom_point() +
 # Additional resources
 
 -   <https://clauswilke.com/dataviz/>
+
+# Exercises
+
+Understanding data types is important for data visualization and
+statistical modeling. Check out the case studies on [data behind the
+plots](../case_studies/data_behind_the_plot/).
 
 # References and footnotes
 

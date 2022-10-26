@@ -418,4 +418,9 @@ murders %>% ggplot(aes(x = population/10^6, y = total, label = abb)) +
 We plot the relationship between total number of murders (in [logarithmic scale](https://en.wikipedia.org/wiki/Logarithmic_scale)) versus the population in [US states](https://en.wikipedia.org/wiki/U.S._state) (log scale) and color code each state for region. There is a trend that more populous states tend to have more murders.
 
 
+# Exercises
+
+Understanding data types is important for data visualization and statistical modeling. Check out the case studies on [data behind the plots](../case_studies/data_behind_the_plot/).
+
+
 # References

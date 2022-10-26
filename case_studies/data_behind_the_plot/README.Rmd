@@ -1,8 +1,10 @@
 ---
-title: "Data behind the plot"
-author: "Alena Witzlack-Makarevich"
-date: "2022-10-15"
-output: github_document
+title: "Data behind the plots"
+author: "Alena Witzlack-Makarevich & Steven Moran"
+date: "(`r format(Sys.time(), '%d %B, %Y')`)"
+output:
+  github_document:
+      toc: true
 ---
 
 # Data set, data matrix, tabular data
@@ -62,6 +64,16 @@ Let's visualize aspects of the dataset. Here are some great examples:
 
 We adapt them here. For example, quality of wine.
 
+Here's an example of a basic plot.
+
+```{r}
+ggplot(data = red_wine, aes(x = quality)) +
+  geom_histogram(binwidth = 1)
+  theme_bw()
+```
+
+Here is one that is a bit more elegantly portrayed.
+
 ```{r}
 ggplot(data = red_wine, aes(x = quality)) +
   geom_histogram(color = 'black', fill = '#099DD9', binwidth = 1) +
@@ -116,16 +128,20 @@ ggplot(data = y, aes(x = y$quality_by_category, fill = ..count..)) +
   # Include bins of length zero
   scale_x_discrete(drop = FALSE) 
 ```
+
 Rating by fixed acidity.
 
 ```{r}
 ggplot(data = red_wine, aes(x = quality_by_category, y = `fixed acidity`, color = quality_by_category)) + geom_boxplot()
 ```
+
 Rating by residual sugar.
 
 ```{r}
 ggplot(data = red_wine, aes(x = quality_by_category, y = `residual sugar`, color = quality_by_category)) + geom_boxplot()
 ```
+
+Sulphates and alcohol.
 
 ```{r}
 ggplot(aes(x = log10(sulphates), y = alcohol, colour = quality_by_category), 
@@ -138,6 +154,8 @@ ggplot(aes(x = log10(sulphates), y = alcohol, colour = quality_by_category),
                            quantile(red_wine$alcohol, 0.99999))) 
 ```
 
+Fixed acidity and density.
+
 ```{r}
 ggplot(aes(x = `fixed acidity`, y = density, colour = quality_by_category), 
        data = red_wine) + 
@@ -149,7 +167,6 @@ ggplot(aes(x = `fixed acidity`, y = density, colour = quality_by_category),
   scale_y_continuous(lim=c(quantile(red_wine$density, 0.0001),
                            quantile(red_wine$density, 0.9999)))
 ```
-
 
 
 # Case study: Come fly with me

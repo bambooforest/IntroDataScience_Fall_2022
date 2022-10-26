@@ -2,7 +2,7 @@ Data visualization II
 ================
 Steven Moran & Alena Witzlack-Makarevich
 
-06 October, 2022
+26 October, 2022
 
 -   <a href="#visualizing-data" id="toc-visualizing-data">Visualizing
     data</a>
@@ -19,6 +19,7 @@ Steven Moran & Alena Witzlack-Makarevich
     -   <a href="#putting-it-all-together-an-example"
         id="toc-putting-it-all-together-an-example">Putting it all together: an
         example</a>
+-   <a href="#exercises" id="toc-exercises">Exercises</a>
 -   <a href="#references" id="toc-references">References</a>
 
 ------------------------------------------------------------------------
@@ -689,6 +690,12 @@ versus the population in [US
 states](https://en.wikipedia.org/wiki/U.S._state) (log scale) and color
 code each state for region. There is a trend that more populous states
 tend to have more murders.
+
+# Exercises
+
+Understanding data types is important for data visualization and
+statistical modeling. Check out the case studies on [data behind the
+plots](../case_studies/data_behind_the_plot/).
 
 # References
 
