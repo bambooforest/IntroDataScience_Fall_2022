@@ -13,7 +13,7 @@
 
 **Form of assessment**: Continuous assessment with data science exercises (graded). Work not submitted by the required deadline will result in a fail for that given assessment.
 
-**Form of education**: Readings, lectures, methods and data practical.
+**Form of education**: Readings, lectures, methods and [data practical](data_practical.md) (final project).
 
 The course schedule is available here (invite only; email me if don't have access):
 
@@ -47,17 +47,17 @@ This report must be [compiled (aka knit)](https://github.com/bambooforest/IntroD
 * HTML
 * PDF
 
-On the final day of class, each student will briefly present their data practical report and we will anonymously rate and review them.
+On the final day of class, each student will briefly present their [data practical](data_practical.md) report and we will anonymously rate and review them.
 
-If you use GitHub, put your repository's URL into the spreadsheet in the course schedule above. If you do not use GitHub, please submit your data practical to me via email.
+If you use GitHub, put your repository's URL into the spreadsheet in the course schedule above. If you do not use GitHub, please submit your [data practical](data_practical.md) to me via email.
 
-The course is heavily weighted on the data practical. The idea is that you not only learn how to implement the materials you learn from DataCamp and from this course, but that after the course is over, you will have a piece of work that showcases your data science skills, e.g., something that you can share on a resume or CV or on job or school applications.
+The course is heavily weighted on the [data practical](data_practical.md). The idea is that you not only learn how to implement the materials you learn from DataCamp and from this course, but that after the course is over, you will have a piece of work that showcases your data science skills, e.g., something that you can share on a resume or CV or on job or school applications.
 
 ***
 
 **Grading**: 
 
-* 70% data practical.
+* 70% [data practical](data_practical.md).
 
 * 30% of your grade will come from the presentation of the reading chapters (to be divided among the students). 
 
