@@ -1,9 +1,11 @@
 Data
 ================
 Steven Moran
-(06 October, 2022)
+(26 October, 2022)
 
 -   <a href="#what-is-data" id="toc-what-is-data">What is data?</a>
+-   <a href="#where-do-i-find-data" id="toc-where-do-i-find-data">Where do I
+    find data?</a>
 -   <a href="#structured-versus-unstructured-data"
     id="toc-structured-versus-unstructured-data">Structured versus
     unstructured data</a>
@@ -27,7 +29,6 @@ Steven Moran
 -   <a href="#tabular-data" id="toc-tabular-data">Tabular data</a>
 -   <a href="#metadata" id="toc-metadata">Metadata</a>
 -   <a href="#data-archiving" id="toc-data-archiving">Data archiving</a>
--   <a href="#open-data" id="toc-open-data">Open data</a>
 -   <a href="#references-and-footnotes"
     id="toc-references-and-footnotes">References and footnotes</a>
 
@@ -164,6 +165,142 @@ data, e.g., it’s organized, summarized, or analyzed.
 Data is based on observations or records. Information is based on the
 organization, summarization, or analysis of the data and tells us
 something about the raw data.
+
+# Where do I find data?
+
+The world is awash in data. And the amount of data being created is
+increasingly rapidly. By some estimates, there was 60 or more
+[zettabytes](https://en.wikipedia.org/wiki/Zettabyte_Era) of data as of
+2020.
+
+-   <https://www.statista.com/statistics/871513/worldwide-data-created/>
+-   <https://seedscientific.com/how-much-data-is-created-every-day/>
+-   <https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/>
+
+As of 2021, calculations of how much data is being created stood at:
+
+> > > Each day on Earth we generate 500 million tweets, 294 billion
+> > > emails, 4 million gigabytes of Facebook data, 65 billion WhatsApp
+> > > messages and 720,000 hours of new content added daily on YouTube.
+
+-   <https://theconversation.com/the-worlds-data-explained-how-much-were-producing-and-where-its-all-stored-159964>
+
+That’s a lot of data. Lots of it’s “closed” or
+[“proprietary”](https://en.wikipedia.org/wiki/Proprietary_software)
+data. But there’s also lots of [open
+data](https://en.wikipedia.org/wiki/Open_data) available.
+
+Try [searching](https://www.google.com/search?q=open+data+sets) for
+some!
+
+[Open data](https://en.wikipedia.org/wiki/Open_data) are data that are
+freely available and also the idea that data should be freely available.
+(Recall what we’ve discussed about data and software licenses.) The idea
+is similar to [open source
+code](https://en.wikipedia.org/wiki/Open_source), i.e., the idea that
+source code is made openly and freely available. Both open data and open
+source code are integral to [open data
+science](https://en.wikipedia.org/wiki/Open_science_data) and
+[reproducible science](https://en.wikipedia.org/wiki/Reproducibility).
+
+There is a lot of openly available datasets out there. Here are some
+that I use:
+
+-   <https://archive.ics.uci.edu/ml/index.php>
+-   <https://opendata.swiss/en/>
+-   <https://zenodo.org>
+
+But don’t be shy – use search to find other places! For example:
+
+-   [best places for open
+    datasets](https://www.google.com/search?q=best+places+for+open+datasets)
+
+There are lots of results highlighing where to look for free datasets,
+e.g.:
+
+-   <https://careerfoundry.com/en/blog/data-analytics/where-to-find-free-datasets/>
+-   <https://www.freecodecamp.org/news/https-medium-freecodecamp-org-best-free-open-data-sources-anyone-can-use-a65b514b0f2d/>
+
+Google for example has a dataset search and a public data portal:
+
+-   <https://datasetsearch.research.google.com>
+-   <https://www.google.com/publicdata/directory>
+
+Kaggle is another popular place to look for data:
+
+-   <https://www.kaggle.com/datasets>
+
+Amazon Web Services has a data portal:
+
+-   <https://registry.opendata.aws>
+
+Governments sometimes publish data, e.g.:
+
+-   [European Union](https://data.europa.eu)
+-   [US government open data](https://data.gov)
+-   [Germany government open data](https://www.govdata.de)
+-   [CIA world factbook](https://www.cia.gov/the-world-factbook/)
+-   [US census data](https://www.census.gov/data.html)
+
+How about some “high quality data and datasets organized by topic”?
+
+-   <https://datahub.io/collections>
+
+This is an example of a general repository for datasets, which also
+includes the UCI Machine Learning Repository:
+
+-   <https://archive.ics.uci.edu/ml/index.php>
+-   <https://archive.ics.uci.edu/ml/datasets.php>
+
+Want some data about the Earth?
+
+-   <https://www.earthdata.nasa.gov>
+
+Or particle physics?
+
+-   <http://opendata.cern.ch>
+
+Are you interested in global health?
+
+-   <https://apps.who.int/gho/data/node.home>
+-   <https://data.unicef.org>
+
+Or film?
+
+-   <https://www.bfi.org.uk/industry-data-insights>
+-   <https://data.world/datasets/movies>
+-   <https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset>
+
+Or something more specific? New York city taxis?
+
+-   <https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page>
+
+Crime?
+
+-   <https://crime-data-explorer.fr.cloud.gov/pages/home>
+
+Finance?
+
+-   <https://data.worldbank.org>
+
+Are you interested in [data
+journalism](https://en.wikipedia.org/wiki/Data_journalism)? Try
+FiveThirtyEight:
+
+-   <https://data.fivethirtyeight.com>
+
+[DBpedia](https://en.wikipedia.org/wiki/DBpedia) is a knowledge base
+built on [Wikipedia](https://en.wikipedia.org/wiki/Wikipedia):
+
+-   <https://www.dbpedia.org>
+
+Yelp datasets:
+
+-   <https://www.yelp.com/dataset>
+
+R also has built in datasets:
+
+-   <https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html>
 
 # Structured versus unstructured data
 
@@ -1013,26 +1150,6 @@ Ask me more, if you have questions or it is relevant to your research!
 For example, I have collected a lot of data on endangered languages,
 which I digitally archive in an attempt to preserve it for future
 speakers and researchers.
-
-# Open data
-
-[Open data](https://en.wikipedia.org/wiki/Open_data) are data that are
-freely available and also the idea that data should be freely available.
-(Recall what we’ve discussed about data and software licenses.) The idea
-is similar to [open source
-code](https://en.wikipedia.org/wiki/Open_source), i.e., the idea that
-source code is made openly and freely available. Both open data and open
-source code are integral to [open data
-science](https://en.wikipedia.org/wiki/Open_science_data) and
-[reproducible science](https://en.wikipedia.org/wiki/Reproducibility).
-
-There is a lot of open data out there, e.g.:
-
--   <https://opendata.swiss/en/>
--   <https://zenodo.org>
-
-Try [searching](https://www.google.com/search?q=open+data+sets) for
-some!
 
 # References and footnotes
 

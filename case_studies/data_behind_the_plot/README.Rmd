@@ -32,6 +32,126 @@ output: github_document
 
 ***
 
+# Case study: Red wine quality
+
+Here is a paper about modeling wine preferences by using data mining on physicochemical properties of wine:
+
+* https://www.sciencedirect.com/science/article/abs/pii/S0167923609001377?via%3Dihub
+
+The authors aims to predict human wine taste preferences using a data driven approach. They do so through regression modeling and model selection techniques.
+
+The dataset is available online:
+
+* https://archive.ics.uci.edu/ml/datasets/wine+quality
+* https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009?select=winequality-red.csv
+
+You can find out more about the data types in dataset at these URLs, e.g., residual sugar, citric acid, density.
+
+Let's load the data.
+
+```{r}
+library(tidyverse)
+
+# We use read_delim to set the delimiter to ";"
+red_wine <- read_delim('datasets/winequality-red.csv', delim = ";")
+```
+
+Let's visualize aspects of the dataset. Here are some great examples:
+
+* https://ksatola.github.io/projects/EDA_RedWineQuality_FinalwithCode.html
+
+We adapt them here. For example, quality of wine.
+
+```{r}
+ggplot(data = red_wine, aes(x = quality)) +
+  geom_histogram(color = 'black', fill = '#099DD9', binwidth = 1) +
+  # Used to show 0-10 range, even if there are no values close to 0 or 10
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 1)) +
+  xlab('Quality of Red Wine') +
+  ylab('Number of Red Wines') +
+  theme_bw()
+```
+
+Some questions:
+
+* What is the data type? 
+* What does the plot tell us about the quality of the wine in the dataset?
+
+We can also split the wine into categories. 
+
+```{r}
+# Set boundaries for intervals
+breaks <- c(0, 5, 7, 10)
+
+# Bucket data points into intervals
+red_wine$quality_by_category <- cut(red_wine$quality, breaks, include.lowest = TRUE, right = FALSE)
+
+# Check intervals
+summary(red_wine$quality_by_category)
+```
+
+And add some labels.
+
+```{r}
+# Add labels to intervals
+labels <- c("Low", "Medium", "High")
+red_wine$quality_by_category <- cut(red_wine$quality, breaks, include.lowest = TRUE, right = FALSE, labels=labels)
+
+# Check if labels are applied properly
+table(red_wine$quality_by_category)
+```
+
+And a visualization.
+
+```{r}
+y <- cbind(red_wine, red_wine$quality_by_category)
+ggplot(data = y, aes(x = y$quality_by_category, fill = ..count..)) + 
+  geom_bar(color = 'black', alpha = 0.9) + 
+  # Add text labels with number of rows in each category
+  theme_bw() + 
+  labs(y = "Number of Observations", x = "Red Wine Quality Category") +
+  # Make the plot horizontal
+  # Limit y axis
+  ylim(0, 2000) +
+  # Include bins of length zero
+  scale_x_discrete(drop = FALSE) 
+```
+Rating by fixed acidity.
+
+```{r}
+ggplot(data = red_wine, aes(x = quality_by_category, y = `fixed acidity`, color = quality_by_category)) + geom_boxplot()
+```
+Rating by residual sugar.
+
+```{r}
+ggplot(data = red_wine, aes(x = quality_by_category, y = `residual sugar`, color = quality_by_category)) + geom_boxplot()
+```
+
+```{r}
+ggplot(aes(x = log10(sulphates), y = alcohol, colour = quality_by_category), 
+       data = red_wine) + 
+  geom_point(aes(size = quality_by_category)) +
+  scale_color_brewer(type = 'div', palette="Set1") +
+  scale_x_continuous(lim=c(quantile(log10(red_wine$sulphates), 0.00001),
+                           quantile(log10(red_wine$sulphates), 0.99999)))+
+  scale_y_continuous(lim=c(quantile(red_wine$alcohol, 0.00001),
+                           quantile(red_wine$alcohol, 0.99999))) 
+```
+
+```{r}
+ggplot(aes(x = `fixed acidity`, y = density, colour = quality_by_category), 
+       data = red_wine) + 
+  geom_point(size = 4) +
+  #geom_point() +
+  scale_color_brewer(type = 'div', palette="Set1") +
+  scale_x_continuous(lim=c(quantile(red_wine$`fixed acidity`, 0.0001),
+                           quantile(red_wine$`fixed acidity`, 0.9999))) +
+  scale_y_continuous(lim=c(quantile(red_wine$density, 0.0001),
+                           quantile(red_wine$density, 0.9999)))
+```
+
+
+
 # Case study: Come fly with me
 
 Which airlines should you travel with – and which should you avoid? We sift through the data so you don't have to (JAMES TOZER | APRIL/MAY 2016)
