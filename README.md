@@ -25,18 +25,35 @@ The course schedule is available here (invite only; email me if don't have acces
 
 Please practice [critical reading](https://faculty.washington.edu/ebender/critical_reading.pdf). Here is a nice example of [reading a technical paper](https://jofrhwld.github.io/teaching/courses/2022_lin517/reading/). 
 
+***
+
 We will begin each class with a presentation by student(s) followed by a discussion of the reading. The presentation should be a short summary of the chapter (~10-15 minutes max!), in your own thoughts, in PowerPoint or similar program, or as you prefer. Everyone else should read the material before class and bring their opinions, criticisms, and questions about the reading.
+
+***
 
 Lectures will be given in class and they will be followed by practical in-class work. The contents of each lecture, and more, is available in each folder in this repository, e.g., to get started go to lecture materials in [week one](1_introduction).
 
+***
+
 Homework involves courses from [DataCamp](https://www.datacamp.com). The suggested due date is before the next lecture. (The aim is to keep you on track, so that you don't fall behind. :)  All homework assignments must be completed by the last day of class.
 
-The "final" [data practical](data_practical.md) will include the creation of an R markdown [scientific report](2_scientific_reports) incorporating material and methods from the lectures in R code. You will select dataset(s) of your own interest to test a hypothesis and tell a story (we will discuss various examples). This report will then be "committed" and "pushed" to your GitHub repository before the final session. We will discuss these procedures in class.
+***
+
+The "final" [data practical](data_practical.md) will include the creation of an R markdown [scientific report](2_scientific_reports) incorporating material and methods from the lectures in R code. You will select dataset(s) of your own interest to test a hypothesis (or hypotheses) of your choosing and then tell a story (we will discuss various examples). 
+
+This report must be [compiled (aka knit)](https://github.com/bambooforest/IntroDataScience/tree/main/2_writing_scientific_reports#r-markdown-overview) into one of the following formats for final submission:
+
+* GitHub markdown in a GitHub repository (preferred -- we will discuss this procedure in class)
+* HTML
+* PDF
 
 On the final day of class, each student will briefly present their data practical report and we will anonymously rate and review them.
 
+If you use GitHub, put your repository's URL into the spreadsheet in the course schedule above. If you do not use GitHub, please submit your data practical to me via email.
+
 The course is heavily weighted on the data practical. The idea is that you not only learn how to implement the materials you learn from DataCamp and from this course, but that after the course is over, you will have a piece of work that showcases your data science skills, e.g., something that you can share on a resume or CV or on job or school applications.
 
+***
 
 **Grading**: 
 
@@ -55,6 +72,8 @@ To get started with this course, follow the instructions in:
 * [1_introduction](https://github.com/bambooforest/IntroDataScience/tree/main/1_introduction)
 
 Then follow the chapters as per the class as per the [class schedule](https://docs.google.com/spreadsheets/d/1CpLh_zcx-XNne84IaXbYCqIAp6T17wkEaEK7OUVtEhQ/edit?usp=sharing).
+
+***
 
 An important note about the chapters in this class. We aim to provide a lot of information on each topic -- sometimes much more than you will have time to read or go through, for example, multiple different readings and tutorials on the same topic. This often appears in bullet points where we give multiple resources on the same topic.
 

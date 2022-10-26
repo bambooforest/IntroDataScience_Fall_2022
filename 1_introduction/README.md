@@ -38,9 +38,9 @@ Note: there are many other plain text editor software programs out there. [LMGTF
 * [https://www.google.com/search?&q=best+plain+text+editors](https://www.google.com/search?&q=best+plain+text+editors)
 
 
-## GitHub
+## GitHub (optional, but preferred)
 
-Your final data practical must be uploaded to your GitHub repository (your README.Rmd and README.md files along with any plots, images, etc.). 
+Your final data practical may be uploaded to your GitHub repository (your README.Rmd and README.md files along with any plots, images, etc.). 
 
 If you are new to [software repositories](https://en.wikipedia.org/wiki/Software_repository) you may leave this step until the end of the course, although I encourage you to jump in early because repositories can be used to save your work in the cloud and to share it with others for input and collaboration.
 
