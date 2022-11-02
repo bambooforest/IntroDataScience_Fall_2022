@@ -2,7 +2,7 @@ Data modeling
 ================
 Steven Moran & Alena Witzlack-Makarevich
 
-06 October, 2022
+01 November, 2022
 
 -   <a href="#recap" id="toc-recap">Recap</a>
 -   <a href="#modeling" id="toc-modeling">Modeling</a>
@@ -56,22 +56,22 @@ These skills helps us undertake exploratory and descriptive analyses.
 
 # Modeling
 
-The next step is to **model** data. Scientists are interested in
-discovering/understanding something about real world phenomena. Three
-types of goals:
+The next step is to **model data**. Scientists are interested in
+**discovering/understanding** something about real world phenomena.
+Three types of goals:
 
 -   Describe
 -   Explain
 -   Predict
 
-One goal of data modeling is to provide a summary of a data set, i.e.,
-describe it. Another is to come up with hypotheses for descriptive and
-inference purposes.
+One goal of **data modeling** is to provide a summary of a data set,
+i.e., describe it. Another is to come up with **hypotheses for
+descriptive and inference purposes**.
 
 One purpose of descriptive statistics is to efficiently summarize
-information for visual purposes. Descriptive statistics use [summary
+information for visual purposes. **Descriptive statistics** use [summary
 statistics](https://en.wikipedia.org/wiki/Summary_statistics) to
-summarize a set of observations, including for example:
+**summarize a set of observations**, including for example:
 
 -   [Central tendency](https://en.wikipedia.org/wiki/Central_tendency)
 -   [Dispersion](https://en.wikipedia.org/wiki/Statistical_dispersion)
@@ -79,10 +79,10 @@ summarize a set of observations, including for example:
     distribution](https://en.wikipedia.org/wiki/List_of_probability_distributions)
 -   [Statistical dependence](https://en.wikipedia.org/wiki/Correlation)
 
-Statistical inference methods allow you to draw a conclusion, i.e., you
-infer something, about your data. This allows us to do things like fit
-statistical models and understand how they work and what they tell us
-about our data, so that we can test our hypotheses.
+**Statistical inference** methods allow you to **draw a conclusion**,
+i.e., you infer something, about your data. This allows us to do things
+like fit statistical models and understand how they work and what they
+tell us about our data, so that we can test our hypotheses.
 
 Nolan and Heinzen (2011) define two main branches of modern statistics
 (not to be confused with the definitions by Janert (2010) above):
@@ -119,15 +119,16 @@ One confusing aspect for scientists without a statistics background is:
 are the relevant assumptions of the common statistical tests and when
 should I use which?
 
-To answer which kind of statistical test you should use, first you need
-to answer what kind of distribution your data follows. Different tests
-assume different distributions. In other words, how is your data shaped?
+To answer which kind of statistical test you should use, **first ask
+what kind of distribution your data follows**. Different tests assume
+different distributions. In other words, how is your data shaped?
+Visualize it!
 
 And like our [discussion on which plots to
 use](https://github.com/bambooforest/IntroDataScience/tree/main/6_data_visualization#which-plots-to-use)
-to visualize you data, you also need to know what your data types are,
-how many variable you have, and how you are testing them, e.g., are you
-comparing two distributions?
+to visualize you data, **you also need to know what your data types
+are**, how many variable you have, and how you are testing them, e.g.,
+are you comparing two distributions?
 
 ------------------------------------------------------------------------
 
@@ -163,18 +164,21 @@ book](https://www.oreilly.com/library/view/data-analysis-with/9781449389802/),
 
 This chapter is totally worth reading! (So is the whole book.)
 
-It describes, for example, how classical statistics came about – in the
-late 19th and early 20th centuries by a small group of people, mostly in
-Great Britain, working for example at Guinness and in agriculture. They
-had:
+It describes, for example, **how did classical statistics come about?**
+
+In the late 19th and early 20th centuries by a small group of people,
+mostly in Great Britain, working for example at
+[Guinness](https://en.wikipedia.org/wiki/Guinness) and in agriculture.
+They had:
 
 -   No computational capabilities
 -   No graphing capabilities
 -   Very small and very expensive data sets
 
-Their situation, as Janert notes, was basically the opposite of what we
-have today. Given their limitations, it took a great deal of ingenuity
-to solve problems that we – for the most part – no longer have, e.g.:
+Their situation, as Janert notes, was basically the **opposite of what
+we have today**. Given their limitations, it took a great deal of
+ingenuity to solve problems that we – for the most part – no longer
+have, e.g.:
 
 -   We have lots of computing power
 -   We have lots of graphing capabilities
@@ -195,7 +199,7 @@ object in a population (e.g. every person in the world or in a country,
 every language, every sentence ever produced).
 
 When properties of the population are inferred from a sample, we are
-undertaking statistical inference.
+undertaking **statistical inference**.
 
 ------------------------------------------------------------------------
 
@@ -258,6 +262,8 @@ The relevant mathematical concept is the one of **function**. Consider
 for example the input of `height` and output of `weight` with our
 `atheletes` data.
 
+Here is the data:
+
 ``` r
 athletes <- read_csv('../4_data_wrangling/datasets/athletes.csv')
 ```
@@ -285,8 +291,46 @@ head(athletes) %>% kable()
 |  21 | 1992-07-30 | Male   |   1.86 | Adam Barwood      |     82 |           0 |             0 |             0 |            0 | Alpine Skiing    | New Zealand   |
 |  21 | 1992-12-18 | Male   |   1.75 | Adam Cieslar      |     57 |           0 |             0 |             0 |            0 | Nordic Combined  | Poland        |
 
-One way to look at that relationship is to plot the input on the x-axis
-and the output on the y-axis in a scatter plot.
+And its contents:
+
+``` r
+str(athletes)
+```
+
+    ## spec_tbl_df [2,859 × 12] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+    ##  $ age          : num [1:2859] 17 27 21 21 21 21 18 23 17 21 ...
+    ##  $ birthdate    : Date[1:2859], format: "1996-04-12" "1986-05-14" ...
+    ##  $ gender       : chr [1:2859] "Male" "Male" "Male" "Male" ...
+    ##  $ height       : num [1:2859] 1.72 1.85 1.78 1.68 1.86 1.75 1.7 1.78 1.63 1.62 ...
+    ##  $ name         : chr [1:2859] "Aaron Blunck" "Aaron March" "Abzal Azhgaliyev" "Abzal Rakimgaliev" ...
+    ##  $ weight       : num [1:2859] 68 85 68 NA 82 57 76 80 NA 56 ...
+    ##  $ gold_medals  : num [1:2859] 0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ silver_medals: num [1:2859] 0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ bronze_medals: num [1:2859] 0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ total_medals : num [1:2859] 0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ sport        : chr [1:2859] "Freestyle Skiing" "Snowboard" "Short Track" "Figure Skating" ...
+    ##  $ country      : chr [1:2859] "United States" "Italy" "Kazakhstan" "Kazakhstan" ...
+    ##  - attr(*, "spec")=
+    ##   .. cols(
+    ##   ..   age = col_double(),
+    ##   ..   birthdate = col_date(format = ""),
+    ##   ..   gender = col_character(),
+    ##   ..   height = col_double(),
+    ##   ..   name = col_character(),
+    ##   ..   weight = col_double(),
+    ##   ..   gold_medals = col_double(),
+    ##   ..   silver_medals = col_double(),
+    ##   ..   bronze_medals = col_double(),
+    ##   ..   total_medals = col_double(),
+    ##   ..   sport = col_character(),
+    ##   ..   country = col_character()
+    ##   .. )
+    ##  - attr(*, "problems")=<externalptr>
+
+------------------------------------------------------------------------
+
+One way to look at that relationship is to **plot the input** on the
+x-axis and the output on the y-axis in a scatter plot.
 
 ``` r
 ggplot(athletes, aes(height, weight)) +
@@ -295,7 +339,7 @@ ggplot(athletes, aes(height, weight)) +
 
     ## Warning: Removed 380 rows containing missing values (geom_point).
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 One way to test whether there is a relationship is to use linear
 regression.
@@ -312,7 +356,7 @@ ggplot(athletes, aes(height, weight)) +
 
     ## Warning: Removed 380 rows containing missing values (geom_point).
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 Like other statistical tests, you will have to know the (four) main
 assumptions for linear regression, i.e.:
@@ -339,7 +383,7 @@ can quickly visualize it. Is it normal?
 hist(athletes$height)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 As we saw above, the data are linearly distributed. Here’s another way
 to quickly visualize the x and y variables.
@@ -348,7 +392,7 @@ to quickly visualize the x and y variables.
 plot(weight ~ height, data = athletes)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 Homoscedasticity means that the prediction error does not change
 significantly over the range of prediction of the model. We will discuss
 this more in the coming weeks – as well as what the output means.
@@ -509,19 +553,19 @@ is not met, the your conclusions may be wrong.
 hist(athletes$height)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 hist(athletes$weight)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 hist(athletes$age)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 And recall the `summary` function!
 
@@ -724,14 +768,14 @@ ggplot(data = f1, aes(female)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ``` r
 ggplot(data = f1, aes(male)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
 
 Perhaps a bit more useful?
 
@@ -740,14 +784,14 @@ ggplot(data = f1, aes(x = vowel, y = female)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 ``` r
 ggplot(data = f1, aes(x = vowel, y = male)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-15-2.png)<!-- --> The problem
+![](README_files/figure-gfm/unnamed-chunk-16-2.png)<!-- --> The problem
 is the input data is not in a format that is particularly easy to plot
 as a box plot. So, what do we do? Transform it into a format that is
 easy to plot. (Remember, something like 80% of your time is getting the
@@ -836,7 +880,7 @@ ggplot(data = df, aes(sex, F1)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 And we can be begin to explore the data in various ways.
 
@@ -845,7 +889,7 @@ ggplot(data = df, aes(vowel, F1, fill=sex)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 ## ANOVA
 
@@ -962,7 +1006,7 @@ qplot(x = sport, y = weight, data = athletes, geom = "boxplot", fill = sport) +
 
     ## Warning: Removed 378 rows containing non-finite values (stat_boxplot).
 
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ``` r
 library(car)
@@ -1114,7 +1158,7 @@ TukeyHSD(m_sport_aov)
 plot(TukeyHSD(m_sport_aov))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 ``` r
 m_sport_aovlm <- anova(lm(weight ~ sport, data = athletes))

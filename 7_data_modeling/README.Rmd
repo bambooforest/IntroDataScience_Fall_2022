@@ -41,22 +41,22 @@ These skills helps us undertake exploratory and descriptive analyses.
 
 # Modeling
 
-The next step is to **model** data. Scientists are interested in discovering/understanding something about real world phenomena. Three types of goals:
+The next step is to **model data**. Scientists are interested in **discovering/understanding** something about real world phenomena. Three types of goals:
 
 * Describe
 * Explain
 * Predict
 
-One goal of data modeling is to provide a summary of a data set, i.e., describe it. Another is to come up with hypotheses for descriptive and inference purposes.
+One goal of **data modeling** is to provide a summary of a data set, i.e., describe it. Another is to come up with **hypotheses for descriptive and inference purposes**.
 
-One purpose of descriptive statistics is to efficiently summarize information for visual purposes. Descriptive statistics use [summary statistics](https://en.wikipedia.org/wiki/Summary_statistics) to summarize a set of observations, including for example:
+One purpose of descriptive statistics is to efficiently summarize information for visual purposes. **Descriptive statistics** use [summary statistics](https://en.wikipedia.org/wiki/Summary_statistics) to **summarize a set of observations**, including for example:
 
 * [Central tendency](https://en.wikipedia.org/wiki/Central_tendency)
 * [Dispersion](https://en.wikipedia.org/wiki/Statistical_dispersion)
 * [Shape of the distribution](https://en.wikipedia.org/wiki/List_of_probability_distributions)
 * [Statistical dependence](https://en.wikipedia.org/wiki/Correlation)
 
-Statistical inference methods allow you to draw a conclusion, i.e., you infer something, about your data. This allows us to do things like fit statistical models and understand how they work and what they tell us about our data, so that we can test our hypotheses.
+**Statistical inference** methods allow you to **draw a conclusion**, i.e., you infer something, about your data. This allows us to do things like fit statistical models and understand how they work and what they tell us about our data, so that we can test our hypotheses.
 
 @Nolan2011 define two main branches of modern statistics (not to be confused with the definitions by @Janert2010 above):
 
@@ -84,9 +84,9 @@ Here's also a useful tutorial:
 
 One confusing aspect for scientists without a statistics background is: **which statistical test to use?** This question involves asking what are the relevant assumptions of the common statistical tests and when should I use which?
 
-To answer which kind of statistical test you should use, first you need to answer what kind of distribution your data follows. Different tests assume different distributions. In other words, how is your data shaped?
+To answer which kind of statistical test you should use, **first ask what kind of distribution your data follows**. Different tests assume different distributions. In other words, how is your data shaped? Visualize it!
 
-And like our [discussion on which plots to use](https://github.com/bambooforest/IntroDataScience/tree/main/6_data_visualization#which-plots-to-use) to visualize you data, you also need to know what your data types are, how many variable you have, and how you are testing them, e.g., are you comparing two distributions?
+And like our [discussion on which plots to use](https://github.com/bambooforest/IntroDataScience/tree/main/6_data_visualization#which-plots-to-use) to visualize you data, **you also need to know what your data types are**, how many variable you have, and how you are testing them, e.g., are you comparing two distributions?
 
 ***
 
@@ -102,13 +102,15 @@ And like our [discussion on which plots to use](https://github.com/bambooforest/
 
 This chapter is totally worth reading! (So is the whole book.)
 
-It describes, for example, how classical statistics came about -- in the late 19th and early 20th centuries by a small group of people, mostly in Great Britain, working for example at Guinness and in agriculture. They had:
+It describes, for example, **how did classical statistics come about?** 
+
+In the late 19th and early 20th centuries by a small group of people, mostly in Great Britain, working for example at [Guinness](https://en.wikipedia.org/wiki/Guinness) and in agriculture. They had:
 
 * No computational capabilities
 * No graphing capabilities
 * Very small and very expensive data sets
 
-Their situation, as Janert notes, was basically the opposite of what we have today. Given their limitations, it took a great deal of ingenuity to solve problems that we -- for the most part -- no longer have, e.g.:
+Their situation, as Janert notes, was basically the **opposite of what we have today**. Given their limitations, it took a great deal of ingenuity to solve problems that we -- for the most part -- no longer have, e.g.:
 
 * We have lots of computing power
 * We have lots of graphing capabilities
@@ -123,7 +125,7 @@ Nevertheless, statistics typically deals with drawing conclusions about a popula
 
 Samples are used most often because we are rarely able to study every object in a population (e.g. every person in the world or in a country, every language, every sentence ever produced).
 
-When properties of the population are inferred from a sample, we are undertaking statistical inference.
+When properties of the population are inferred from a sample, we are undertaking **statistical inference**.
 
 ***
 
@@ -165,12 +167,22 @@ The independent variable (predictor variable) is the variable that is being mani
 
 The relevant mathematical concept is the one of **function**. Consider for example the input of `height` and output of `weight` with our `atheletes` data.
 
+Here is the data:
+
 ```{r}
 athletes <- read_csv('../4_data_wrangling/datasets/athletes.csv')
 head(athletes) %>% kable()
 ```
 
-One way to look at that relationship is to plot the input on the x-axis and the output on the y-axis in a scatter plot.
+And its contents:
+
+```{r}
+str(athletes)
+```
+
+***
+
+One way to look at that relationship is to **plot the input** on the x-axis and the output on the y-axis in a scatter plot.
 
 ```{r}
 ggplot(athletes, aes(height, weight)) +
