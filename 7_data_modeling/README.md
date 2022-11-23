@@ -2,7 +2,7 @@ Data modeling
 ================
 Steven Moran & Alena Witzlack-Makarevich
 
-01 November, 2022
+02 November, 2022
 
 -   <a href="#recap" id="toc-recap">Recap</a>
 -   <a href="#modeling" id="toc-modeling">Modeling</a>
@@ -341,8 +341,8 @@ ggplot(athletes, aes(height, weight)) +
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-One way to test whether there is a relationship is to use linear
-regression.
+One way to test whether there is a relationship is to use [linear
+regression](https://en.wikipedia.org/wiki/Linear_regression).
 
 ``` r
 ggplot(athletes, aes(height, weight)) +
@@ -358,8 +358,8 @@ ggplot(athletes, aes(height, weight)) +
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-Like other statistical tests, you will have to know the (four) main
-assumptions for linear regression, i.e.:
+Like other statistical tests, **you will have to know the (four) main
+assumptions** for linear regression, i.e.:
 
 -   Independence of observations (aka no autocorrelation)
 -   Normality
@@ -370,6 +370,8 @@ We will talk more about linear models in the follow weeks, but here is a
 good and simple overview:
 
 -   <https://www.scribbr.com/statistics/linear-regression-in-r/>
+
+------------------------------------------------------------------------
 
 For height and weight, we only have one independent variable and one
 dependent variable for each athlete, so we don’t need to test for any
@@ -393,9 +395,11 @@ plot(weight ~ height, data = athletes)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-Homoscedasticity means that the prediction error does not change
-significantly over the range of prediction of the model. We will discuss
-this more in the coming weeks – as well as what the output means.
+
+[Homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity)
+means that the prediction error does not change significantly over the
+range of prediction of the model. We will discuss this more in the
+coming weeks – as well as what the output means.
 
 ``` r
 lm <- lm(weight ~ height, data = athletes)
@@ -434,7 +438,9 @@ from each other, then we rely on hypothesis testing.
 
 # Hypothesis testing
 
-Hypothesis testing is a way to interpret and draw conclusions about the
+[Hypothesis
+testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
+is a way to interpret and draw conclusions about the
 [population](https://en.wikipedia.org/wiki/Statistical_population) of a
 [sample](https://en.wikipedia.org/wiki/Sample_(statistics)) of data.
 
@@ -466,9 +472,9 @@ Ronald Fisher in *The Design of Experiments* (1935). The book is
 considered a foundational work in experimental design, i.e., it
 introduced the concept of the null hypothesis.
 
-Contemporary science is based on the logic of falsification: it is
+**Contemporary science is based on the logic of falsification: it is
 impossible to prove that something is right, but it is possible to
-reject the opposite.
+reject the opposite.**
 
 In other words – although H0 cannot be proven true, H0 can be proven
 false.
@@ -625,7 +631,7 @@ distribution. This is why they are also called distribution-free tests.
 
 ![Hypothesis testing.](figures/hypothesis_testing.png)
 
-Ask: what are the assumptions of the statistical test?
+**Ask: what are the assumptions of the statistical test?**
 
 An excellent book on doing statistics with R on linguistic data is *How
 to do Linguistics with R* (Levshina 2015).
@@ -791,11 +797,12 @@ ggplot(data = f1, aes(x = vowel, y = male)) +
   geom_boxplot()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-2.png)<!-- --> The problem
-is the input data is not in a format that is particularly easy to plot
-as a box plot. So, what do we do? Transform it into a format that is
-easy to plot. (Remember, something like 80% of your time is getting the
-data in formats that are useful for particular purposes.)
+![](README_files/figure-gfm/unnamed-chunk-16-2.png)<!-- -->
+
+The problem is the input data is not in a format that is particularly
+easy to plot as a box plot. So, what do we do? Transform it into a
+format that is easy to plot. (Remember, something like 80% of your time
+is getting the data in formats that are useful for particular purposes.)
 
 There are many ways to transform the data. Often it helps to first think
 about what format you need to get to – I often do this on scrap paper

@@ -189,7 +189,7 @@ ggplot(athletes, aes(height, weight)) +
   geom_point()
 ```
 
-One way to test whether there is a relationship is to use linear regression.
+One way to test whether there is a relationship is to use [linear regression](https://en.wikipedia.org/wiki/Linear_regression).
 
 ```{r}
 ggplot(athletes, aes(height, weight)) +
@@ -197,7 +197,7 @@ ggplot(athletes, aes(height, weight)) +
   geom_smooth(method='lm')
 ```
 
-Like other statistical tests, you will have to know the (four) main assumptions for linear regression, i.e.:
+Like other statistical tests, **you will have to know the (four) main assumptions** for linear regression, i.e.:
 
 * Independence of observations (aka no autocorrelation)
 * Normality
@@ -207,6 +207,8 @@ Like other statistical tests, you will have to know the (four) main assumptions 
 We will talk more about linear models in the follow weeks, but here is a good and simple overview:
 
 * https://www.scribbr.com/statistics/linear-regression-in-r/
+
+***
 
 For height and weight, we only have one independent variable and one dependent variable for each athlete, so we don’t need to test for any hidden relationships the among variables. In other words, we have independence of observations.
 
@@ -221,7 +223,8 @@ As we saw above, the data are linearly distributed. Here's another way to quickl
 ```{r}
 plot(weight ~ height, data = athletes)
 ```
-Homoscedasticity means that the prediction error does not change significantly over the range of prediction of the model. We will discuss this more in the coming weeks -- as well as what the output means.
+
+[Homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity) means that the prediction error does not change significantly over the range of prediction of the model. We will discuss this more in the coming weeks -- as well as what the output means.
 
 ```{r}
 lm <- lm(weight ~ height, data = athletes)
@@ -237,7 +240,7 @@ Statistical tests are about interpreting data. If we want to interpret our data 
 
 # Hypothesis testing
 
-Hypothesis testing is a way to interpret and draw conclusions about the [population](https://en.wikipedia.org/wiki/Statistical_population) of a [sample](https://en.wikipedia.org/wiki/Sample_(statistics)) of data.
+[Hypothesis testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing) is a way to interpret and draw conclusions about the [population](https://en.wikipedia.org/wiki/Statistical_population) of a [sample](https://en.wikipedia.org/wiki/Sample_(statistics)) of data.
 
 * https://www.scribbr.com/statistics/hypothesis-testing/
 * https://towardsdatascience.com/hypothesis-testing-in-real-life-47f42420b1f7
@@ -259,7 +262,7 @@ The procedure for deciding is roughly as follows:
 
 The procedure was originally developed by the English statistician Ronald Fisher in *The Design of Experiments* (1935). The book is considered a foundational work in experimental design, i.e., it introduced the concept of the null hypothesis.
 
-Contemporary science is based on the logic of falsification: it is impossible to prove that something is right, but it is possible to reject the opposite. 
+**Contemporary science is based on the logic of falsification: it is impossible to prove that something is right, but it is possible to reject the opposite.**
 
 In other words -- although H0 cannot be proven true, H0 can be proven false.
 
@@ -351,7 +354,7 @@ Non-parametric analyses are tests that do not make any assumptions about the par
 
 ![Hypothesis testing.](figures/hypothesis_testing.png)
 
-Ask: what are the assumptions of the statistical test?
+**Ask: what are the assumptions of the statistical test?**
 
 An excellent book on doing statistics with R on linguistic data is *How to do Linguistics with R* [@Levshina2015].
 
@@ -439,6 +442,7 @@ ggplot(data = f1, aes(x = vowel, y = female)) +
 ggplot(data = f1, aes(x = vowel, y = male)) +
   geom_boxplot()
 ```
+
 The problem is the input data is not in a format that is particularly easy to plot as a box plot. So, what do we do? Transform it into a format that is easy to plot. (Remember, something like 80% of your time is getting the data in formats that are useful for particular purposes.)
 
 There are many ways to transform the data. Often it helps to first think about what format you need to get to -- I often do this on scrap paper and then think about the code needed. (Remember with code there's going to typically myriad ways of doing the same thing.)
