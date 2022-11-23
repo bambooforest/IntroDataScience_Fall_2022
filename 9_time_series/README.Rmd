@@ -1,0 +1,482 @@
+---
+title: "Time series analysis: basics"
+author: "Steven Moran & Marco Maiolini"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  github_document:
+      toc: true
+bibliography: '../2_writing_scientific_reports/references.bib'
+---
+
+# Overview
+
+See the [lecture slides](Time_Series.pdf) and take the DataCamp tutorial for deeper insights and discussion.
+
+Let's dive into two case studies using time series analysis. Both datasets are available in the [data](data/) directory.
+
+
+# Case study: COVID-19
+
+[COVID-19](https://en.wikipedia.org/wiki/COVID-19) data is publicly available.
+
+Load the R packages.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tseries)
+```
+
+We have some data about COVID-19. Let's load it.
+
+```{r, message=FALSE, warning=FALSE}
+data <- read_csv("data/Covid_19_cases_EU.csv")
+```
+
+And take a look.
+
+```{r}
+head(data)
+str(data)
+```
+
+Maybe we want to explore it a bit.
+
+```{r}
+table(data$Countries)
+
+data %>% filter(Countries == "Sweden")
+```
+Let's formulate a hypothesis.
+
+* H0: The covid cases will decrease (not increase)
+* H1: The covid cases will increase
+
+***
+
+Although the loaded data is not a time series object in R, the raw data is time series. Convert the data into time series.
+
+```{r}
+is.ts(data)
+class(data)
+data$Date <- as.Date(data$Date)
+data$Cases <- as.numeric(data$Cases)
+data.ts <- ts(data$Cases, start = c(2020, 2), end = c(2022, 2), frequency = 365)
+is.ts(data.ts)
+print(data.ts)
+str(data.ts)
+start(data.ts)
+end(data.ts)
+frequency(data.ts)
+deltat(data.ts)
+```
+
+Visualize it as a time-series.
+
+```{r}
+# par (mfrow=c(2,1), mar=c(4,4,4,4))
+ts.plot(data.ts, col = 1:4, xlab = "Date", ylab = "Cases", main = "Covid cases Sweden", type = "l")
+```
+
+ACF plot.
+
+```{r}
+acf(data.ts, main = "acf plot of Covid cases in Sweden")
+```
+
+Which model is more suitable?
+
+```{r}
+data_diff <- diff(data.ts)
+
+par(mfrow=c(1,1), mar=c(4,4,4,4))
+
+ts.plot(data_diff, xlab = "Date", ylab = "Cases", main = "WN Covid cases --", type = "l")
+
+arima(x= data.ts, order = c(0,0,0)) # Fit WN model
+
+arima(x= data.ts , order = c(0,1,0))  # Fit RW model
+
+data_AR <- arima(data.ts, order = c(1,0,0))
+print(data_AR)
+ts.plot(data.ts, xlab = "Date", ylab = "Cases", main = "AR Covid cases ---", type = "l")
+AR_fitted <- data.ts - residuals(data_AR)
+points(AR_fitted, type = "l", col = 2, lty = 2)
+
+data_MA <- arima(data.ts, order = c(0,0,1))
+print(data_AR)
+ts.plot(data.ts, xlab = "Date", ylab = "Cases", main = "MA Covid cases ---", type = "l")
+MA_fitted <- data.ts - residuals((data_MA))
+points(MA_fitted, type = "l", col = 2, lty = 2)
+```
+
+Let's forecast the time series trends.
+
+```{r}
+ts.plot(data.ts, xlab = "Date", ylab = "Cases", main = "Prediction Covid cases ---", type = "l")
+AR_forecast <- predict(data_AR, n.ahead = 10)$pred
+AR_forecast_se <- predict(data_AR, n.ahead = 10)$se
+points(AR_forecast, type = "l", col = 2)
+points(AR_forecast - 2*AR_forecast_se, type = "l", col = 2, lty = 2)
+points(AR_forecast + 2*AR_forecast_se,type = "l", col = 2, lty = 2)
+
+ts.plot(data.ts, xlab = "Date", ylab = "Cases", main = "Prediction Covid cases ---", type = "l")
+MA_forecast <- predict(data_MA, n.ahead = 10)$pred
+MA_forecast_se <- predict(data_MA, n.ahead = 10)$se
+points(MA_forecast, type = "l", col = 2)
+points(MA_forecast - 2*MA_forecast_se, type = "l", col = 2, lty = 2)
+points(MA_forecast + 2*MA_forecast_se,type = "l", col = 2, lty = 2)
+```
+
+Which model is better?
+
+```{r}
+cor(AR_fitted, MA_fitted)
+```
+
+Autoregression.
+
+```{r}
+AIC(data_AR) # Better
+BIC(data_AR)
+```
+
+Moving Average.
+
+```{r}
+AIC(data_MA) # Better
+BIC(data_MA)
+```
+
+
+
+# Case study: Species in Italy
+
+* H0: Different species have different trend
+* H1: Both species have similar trend
+
+Load the R libraries.
+
+```{r}
+library(tidyverse)
+library(tseries)
+```
+
+Load the data
+
+```{r}
+data <- read.csv("data/Species_Individuals_center_Italy.csv")
+```
+
+Have a look.
+
+```{r}
+str(data)
+head(data)
+table(data$Species)
+```
+
+Turn the data into a time series object.
+
+```{r}
+data <- data %>%
+ mutate (Date = paste(Year, Month, '1', sep = '-'))
+
+data$Date <- as.Date(data$Date, format = '%Y-%m-%d')
+
+data$Individuals <- as.numeric(data$Individuals)
+
+str(data)
+
+data0 <- filter(data, Species == "Sus scrofa")
+
+is.ts(data0)
+
+data0
+
+data0.ts <- ts(data0$Individuals, start = c(2020,10),frequency = 12)
+
+is.ts(data0.ts)
+
+print(data0.ts)
+
+str(data0.ts)
+
+start(data0.ts)
+
+end(data0.ts)
+
+frequency(data0.ts)
+
+deltat(data0.ts)
+```
+
+
+Plot the time series (plot + acf).
+
+```{r}
+#Axis control
+xmin<-min(data0$Date,na.rm=T);xmax<-max(data0$Date,na.rm=T) #ESTABLISH X-VALUES (MIN & MAX)
+ymin<-min(data0$Individuals,na.rm=T);ymax<-max(data0$Individuals,na.rm=T) #ESTABLISH Y-VALUES (MIN & MAX)
+xseq<-seq.Date(xmin,xmax,by='1 month') #CREATE DATE SEQUENCE THAT INCREASES BY MONTH FROM DATE MINIMUM TO MAXIMUM
+yseq<-round(seq(0,ymax,by=10),0) # CREATE SEQUENCE FROM 0-350 BY 50
+
+#Plot
+plot(Individuals~Date,data=data0,type='b',ylim=c(0,ymax),axes=F,xlab='',ylab='', main = "Individuals presence");box() #PLOT LEVEL AS A FUNCTION OF DATE, REMOVE AXES FOR FUTURE CUSTOMIZATION 
+axis.Date(side=1,at=xseq,format='%Y-%m',labels=T,las=3) #ADD X-AXIS LABELS WITH "YEAR-MONTH" FORMAT
+axis(side=2,at=yseq,las=2) #ADD Y-AXIS LABELS
+mtext('Date',side=1,line=5) #X-AXIS LABEL
+mtext('Individuals',side=2,line=4) #Y-AXIS LABEL
+```
+
+```{r}
+#Remove NAs
+mean(data0.ts, na.rm = TRUE)
+data0.ts[8] <- mean(data0.ts, na.rm = TRUE)
+
+#Plot without NAs
+# par (mfrow=c(2,1), mar=c(4,4,4,4))
+
+plot(data0.ts, type = "b",xlab = "Date", ylab = "N individuals", main = "Boar individals", axes = T);box()
+```
+
+
+```{r}
+#axis(2);
+#axis.Date(1,xlim=xseq, at=xseq, format='%Y-%m', labels=T)
+acf(data0.ts, main = "acf boar spotted")
+```
+
+Remove NAs.
+
+```{r}
+mean(data0.ts, na.rm = TRUE)
+data0.ts[8] <- mean(data0.ts, na.rm = TRUE)
+```
+
+Plot without NAs
+
+```{r}
+# par (mfrow=c(2,1), mar=c(4,4,4,4))
+plot(data0.ts, type = "b",xlab = "Date", ylab = "N individuals", main = "Boar individals", axes = T);box()
+```
+
+```{r}
+#axis(2);
+#axis.Date(1,xlim=xseq, at=xseq, format='%Y-%m', labels=T)
+acf(data0.ts, main = "acf boar spotted")
+```
+
+Which model is more suitable?
+
+```{r}
+data0_AR <- arima(data0.ts, order = c(1,0,0))
+print(data0_AR)
+ts.plot(data0.ts, xlab = "Date", ylab = "Individuals", main = "AR Individuals boar", type = "b")
+AR_fitted0 <- data0.ts - residuals(data0_AR)
+points(AR_fitted0, type = "l", col = 2, lty = 2)
+
+data0_MA <- arima(data0.ts, order = c(0,0,1))
+print(data0_MA)
+ts.plot(data0.ts, xlab = "Date", ylab = "Individuals", main = "MA Individuals boar", type = "b")
+MA_fitted0 <- data0.ts - residuals((data0_MA))
+points(MA_fitted0, type = "l", col = 2, lty = 2)
+```
+
+Which model is better?
+
+```{r}
+cor(AR_fitted0, MA_fitted0)
+```
+
+Autoregression
+
+```{r}
+AIC(data0_AR) #better
+BIC(data0_AR)
+```
+
+Moving Average
+
+```{r}
+AIC(data0_MA) #better
+BIC(data0_MA)
+```
+
+Now two compare a second species.
+
+Filter [Capreolus capreolus](https://en.wikipedia.org/wiki/Roe_deer).
+
+```{r}
+data1 <- filter(data, Species == "Capreolus capreolus")
+
+is.ts(data1)
+
+data1 <- data1 %>%
+  mutate (Date = paste(Year, Month, '1', sep = '-'))
+
+data1$Date <- as.Date(data1$Date, format = '%Y-%m-%d')
+
+data1
+
+data1$Individuals <- as.numeric(data1$Individuals)
+
+data1.ts <- ts(data1$Individuals, start = c(2020, 10), end = c(2021, 09), frequency = 12)
+
+is.ts(data1.ts)
+
+print(data1.ts)
+
+str(data1.ts)
+
+start(data1.ts)
+
+end(data1.ts)
+
+frequency(data1.ts)
+
+deltat(data1.ts)
+```
+
+Plot as a time-series (plot + acf).
+
+```{r}
+#Axis control
+xmin<-min(data1$Date,na.rm=T);xmax<-max(data1$Date,na.rm=T) #ESTABLISH X-VALUES (MIN & MAX)
+ymin<-min(data1$Individuals,na.rm=T);ymax<-max(data1$Individuals,na.rm=T) #ESTABLISH Y-VALUES (MIN & MAX)
+xseq<-seq.Date(xmin,xmax,by='1 month') #CREATE DATE SEQUENCE THAT INCREASES BY MONTH FROM DATE MINIMUM TO MAXIMUM
+yseq<-round(seq(0,ymax,by=10),0) # CREATE SEQUENCE FROM 0-350 BY 50
+#Plot
+plot(Individuals~Date,data=data1,type='b',ylim=c(0,ymax),axes=F,xlab='',ylab='', main = "Individuals presence");box() #PLOT LEVEL AS A FUNCTION OF DATE, REMOVE AXES FOR FUTURE CUSTOMIZATION 
+axis.Date(side=1,at=xseq,format='%Y-%m',labels=T,las=3) #ADD X-AXIS LABELS WITH "YEAR-MONTH" FORMAT
+axis(side=2,at=yseq,las=2) #ADD Y-AXIS LABELS
+mtext('Date',side=1,line=5) #X-AXIS LABEL
+mtext('Individuals',side=2,line=4) #Y-AXIS LABEL
+```
+
+Remove NAs.
+
+```{r}
+#mean(data1.ts, na.rm = TRUE)
+#data1.ts[8] <- mean(data.ts, na.rm = TRUE)
+```
+
+Plot.
+
+```{r}
+# par (mfrow=c(2,1), mar=c(4,4,4,4))
+plot(data1.ts, type = "b",xlab = "Date", ylab = "N individuals", main = "Roe deer individals", axes = T);box()
+```
+
+```{r}
+#axis(2);
+#axis.Date(1,xlim=xseq, at=xseq, format='%Y-%m', labels=T)
+acf(data1.ts, main = "acf roe deer spotted")
+```
+
+Which model is more suitable?
+
+```{r}
+data1_AR <- arima(data1.ts, order = c(1,0,0))
+print(data1_AR)
+ts.plot(data1.ts, xlab = "Date", ylab = "Individuals", main = "AR Individuals roe deer", type = "b")
+AR_fitted1 <- data1.ts - residuals(data1_AR)
+points(AR_fitted1, type = "l", col = 2, lty = 2)
+```
+
+```{r}
+data1_MA <- arima(data1.ts, order = c(0,0,1))
+print(data1_MA)
+ts.plot(data1.ts, xlab = "Date", ylab = "Individuals", main = "MA Individuals roe deer", type = "b")
+MA_fitted1 <- data1.ts - residuals((data1_MA))
+points(MA_fitted1, type = "l", col = 2, lty = 2)
+```
+
+Which model is better?
+
+```{r}
+cor(AR_fitted1, MA_fitted1)
+# ts.plot(AR_fitted1, MA_fitted1)
+```
+
+Autoregression.
+
+```{r}
+AIC(data1_AR) # Better
+BIC(data1_AR) # Better
+```
+
+Moving Average.
+
+```{r}
+AIC(data1_MA)
+BIC(data1_MA)
+```
+
+
+Final plot.
+
+```{r}
+ts.plot(data0.ts, xlab = "Date", ylab = "Individuals", main = "AR Individuals boar", type = "b")
+AR_fitted0 <- data0.ts - residuals(data0_AR)
+points(AR_fitted0, type = "l", col = 2, lty = 2)
+```
+
+
+```{r}
+ts.plot(data1.ts, xlab = "Date", ylab = "Individuals", main = "AR Individuals roe deer", type = "b")
+AR_fitted1 <- data1.ts - residuals(data1_AR)
+points(AR_fitted1, type = "l", col = 2, lty = 2)
+```
+
+
+
+
+
+
+# Helpful hints
+
+Install and load the appropriate R libraries.
+
+```{setup, eval = FALSE}
+# install.packages("tidyverse")
+# install.packages("tseries")
+library(tidyverse)
+library(tseries)
+```
+
+Load and check your data.
+
+Explore the dataset and filter if necessary to have only one object (as showed in the COVID or species example).
+
+Create your time series object.
+
+```{Ts object, eval = FALSE}
+data$Date <- as.Date(data$Date) #Format as date
+
+data$Cases <- as.numeric(data$Cases) # Format as number
+
+data.ts <- ts(data$Cases, start = c(2020, 2), end = c(2022, 2), frequency = 365)
+
+is.ts(data.ts)
+```
+
+* Plot your time series and the Autocorrelation plot
+* Fit your time series object in the models that we saw in class
+* Using the Autoregressive and the Simple moving average models try to forecast how your time series will develop in the future.
+* Which is the best model for your data?
+* Evaluate your results, there are limits using time series models? Motivate your answer.
+
+
+# Where to find more data
+
+Here are some other sources of time series data:
+
+- Epidemiology - https://www.ecdc.europa.eu/en/covid-19/data
+- Finance - https://unibit.ai/solution (It requires a login)
+- Demography - https://fred.stlouisfed.org/
+- Miscellaneous - https://db.nomics.world/
+- Species presence - https://www.inaturalist.org/
+- R dataset - type "Nile", "eu_stocks" or "AirPassengers" in R
+
+
+
