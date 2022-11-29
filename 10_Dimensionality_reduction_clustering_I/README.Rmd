@@ -29,11 +29,11 @@ library(datasets)
 
 # Bivariate data -- a story that's all too simple?
 
-Recall the materials on [Linear models I](https://github.com/bambooforest/IntroDataScience/tree/main/8_Linear_Models_I) and [Linear models II](https://github.com/bambooforest/IntroDataScience/tree/main/9_Linear_Models_II). As you remember, for applying linear models we mostly use **bivariate relationships**. This means that we are looking for relationships between only two variables, such as the relationship between brain- and body size in the animal kingdom. This is totally fine for answering a lot of scientific questions. 
+Recall the materials on [Linear models](../8_linear_models/). As you remember, for applying linear models we mostly use **bivariate relationships**. This means that we are looking for relationships between only two variables, such as the relationship between brain- and body size in the animal kingdom. This is totally fine for answering a lot of scientific questions. 
 
 ![correlation between brain- and body size](figures/brainbodysize.png)
 
-**But: what if we have to deal with many more independent variables, potentially hundreds of them?**
+**But what if we have to deal with many more independent variables, potentially hundreds of them?**
 
 Not all scientific questions may be answered by simply looking at the relationship between two variables. Possibly, we will have to look at the influence of many different independent variables on a specific question. In these cases we can use [multivariate analysis and statistics](https://en.wikipedia.org/wiki/Multivariate_statistics). 
 
@@ -88,7 +88,7 @@ What did we do here? We simply plotted two variables (BNL ~ GOL), which gives us
 You might wonder why we used the commands `cord_equal()` and `theme_pubr(border = TRUE, margin = TRUE)` in our `ggplot()` statement. Here's why:
 
 * `cord_equal()` produces isometrically scaled axes. This is very important when plotting data that have similar scale on both axes (e.g,. mm here). A distance in X should always be equal to a distance in Y! (Always do this for a PCA!)
-* `theme_pubr(border = TRUE, margin = TRUE)` produces a nice "publication ready" theme from the [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html) package. Maybe you like it, maybe not. It's totally up to you if you want to use this theme or not! Recall themes from our lecture on [data visualizations](https://github.com/bambooforest/IntroDataScience/tree/main/6_data_visualization#theme).
+* `theme_pubr(border = TRUE, margin = TRUE)` produces a nice "publication ready" theme from the [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html) package. Maybe you like it, maybe not. It's totally up to you if you want to use this theme or not! Recall themes from our lecture on [data visualizations](../6_data_visualization#theme).
 
 ### Ok, but how do we plot more than two variables in a single plot?
 

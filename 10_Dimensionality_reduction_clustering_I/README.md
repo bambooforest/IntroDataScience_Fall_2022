@@ -1,7 +1,7 @@
 Dimensionality reduction and clustering I
 ================
 Tiena Danner & Steven Moran
-(06 October, 2022)
+(29 November, 2022)
 
 -   <a href="#bivariate-data--a-story-thats-all-too-simple"
     id="toc-bivariate-data--a-story-thats-all-too-simple">Bivariate data – a
@@ -55,11 +55,8 @@ library(datasets)
 
 # Bivariate data – a story that’s all too simple?
 
-Recall the materials on [Linear models
-I](https://github.com/bambooforest/IntroDataScience/tree/main/8_Linear_Models_I)
-and [Linear models
-II](https://github.com/bambooforest/IntroDataScience/tree/main/9_Linear_Models_II).
-As you remember, for applying linear models we mostly use **bivariate
+Recall the materials on [Linear models](../8_linear_models/). As you
+remember, for applying linear models we mostly use **bivariate
 relationships**. This means that we are looking for relationships
 between only two variables, such as the relationship between brain- and
 body size in the animal kingdom. This is totally fine for answering a
@@ -67,7 +64,7 @@ lot of scientific questions.
 
 ![correlation between brain- and body size](figures/brainbodysize.png)
 
-**But: what if we have to deal with many more independent variables,
+**But what if we have to deal with many more independent variables,
 potentially hundreds of them?**
 
 Not all scientific questions may be answered by simply looking at the
@@ -191,8 +188,7 @@ Here’s why:
     [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html)
     package. Maybe you like it, maybe not. It’s totally up to you if you
     want to use this theme or not! Recall themes from our lecture on
-    [data
-    visualizations](https://github.com/bambooforest/IntroDataScience/tree/main/6_data_visualization#theme).
+    [data visualizations](../6_data_visualization#theme).
 
 ### Ok, but how do we plot more than two variables in a single plot?
 
