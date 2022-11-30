@@ -1,7 +1,7 @@
 Dimensionality reduction and clustering I
 ================
 Tiena Danner & Steven Moran
-(29 November, 2022)
+(30 November, 2022)
 
 -   <a href="#bivariate-data--a-story-thats-all-too-simple"
     id="toc-bivariate-data--a-story-thats-all-too-simple">Bivariate data – a
@@ -295,7 +295,7 @@ analyze multivariate data sets (Zelditch, Swiderski, and Sheets 2012):
     variables and are **statistically independent** of each other.
 -   Only with a **few variables** (e.g., the PCs), **most of the
     variation** in a given sample can be explained. This means, that
-    only by plotting PC1 & PC2 (a bivariate plot!) we may have over 50 %
+    only by plotting PC1 & PC2 (a bivariate plot!) we may have over 50%
     of variation in a sample visualized in a simple graph.
 -   PCA simplifies the description of **differences between
     individuals**. In PC plots, we will often see patterns of
@@ -335,19 +335,19 @@ In sum, the resulting PCs describe the major directions of largest
 proportions of variance in each direction within this data scatter
 ellipse. Each new direction will be orthogonal to the latter directions.
 This explains why all PCs are totally independent of each other, i.e.,
-they describe each a different pattern of variation in the sample.
+they describe each in a different pattern of variation in the sample.
 
 ### PCA in essence
 
 -   PCA is a statistical procedure that converts a set of observations
     of possibly correlated variables into a set of values of linearly
-    uncorrelated variables called principal components
+    uncorrelated variables called principal components.
     ([Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis))
 -   PCA will help us to find a reduced number of features that will
     represent our original data set in a compressed way, capturing up to
     a certain portion of its variance depending on the number of new
     features we end up selecting
-    ([Towardsdatascience](https://towardsdatascience.com/the-most-gentle-introduction-to-principal-component-analysis-9ffae371e93b))
+    ([Towardsdatascience](https://towardsdatascience.com/the-most-gentle-introduction-to-principal-component-analysis-9ffae371e93b)).
 
 ------------------------------------------------------------------------
 
