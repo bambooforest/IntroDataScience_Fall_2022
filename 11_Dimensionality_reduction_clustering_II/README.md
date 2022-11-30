@@ -1,7 +1,7 @@
 Dimensionality reduction and clustering II
 ================
 Tiena Danner & Steven Moran
-(06 October, 2022)
+(30 November, 2022)
 
 -   <a href="#pca--so-what" id="toc-pca--so-what">PCA – so what?</a>
 -   <a href="#data" id="toc-data">Data</a>
@@ -42,13 +42,13 @@ library(ggdendro)
 ## PCA – so what?
 
 Recall the materials on
-[PCA](https://github.com/bambooforest/IntroDataScience/tree/main/10_Dimensionality_reduction_clustering_I).
-As you remember, we may use **PCA** to boil down sets of multivariate
-data into a few uncorrelated variables that capture the main axes of
-variation in a multivariate data set (the so-called principle components
-or PCs for short). We can use the resulting PCs to visualize
-multivariate data in low-dimensional space and we may even make
-inferences about potential patterns of variation within the data.
+[PCA](../10_Dimensionality_reduction_clustering_I/). As you remember, we
+may use **PCA** to boil down sets of multivariate data into a few
+uncorrelated variables that capture the main axes of variation in a
+multivariate data set (the so-called principle components or PCs for
+short). We can use the resulting PCs to visualize multivariate data in
+low-dimensional space and we may even make inferences about potential
+patterns of variation within the data.
 
 **But what can we do to find the actual patterns, e.g., clusters in the
 data?**
@@ -67,15 +67,17 @@ but instead focus on their practical applications. The main purpose of
 clustering can be summarized as follows
 ([source](https://en.wikipedia.org/wiki/Cluster_analysis)):
 
-**Clustering may be used for grouping objects (or subjects, specimens,
-etc.), such that objects in the same group (or cluster) are more similar
-to each other than objects in other clusters.**
+-   **Clustering may be used for grouping objects (or subjects,
+    specimens, etc.), such that objects in the same group (or cluster)
+    are more similar to each other than objects in other clusters.**
 
-The basic idea of this chapter is 1) that you can implement a clustering
-procedure on your own in R, 2) that you understand which steps are
-included in a classical clustering analysis and 3) finally to apply the
-procedure on your own on different data sets – and of course your own
-data!
+The basic idea of this chapter is;
+
+1.  that you can implement a clustering procedure on your own in R,
+2.  that you understand which steps are included in a classical
+    clustering analysis and
+3.  finally to apply the procedure on your own on different data sets –
+    and of course your own data!
 
 Now let’s go through a **cluster analysis** in detail.
 
@@ -223,12 +225,12 @@ grid.arrange(plot1, plot2, plot3, plot4, nrow = 2)
 
 ### How many clusters to choose in the end?
 
-This is a good but difficult question to answer. Generally it is hard to
-determine the exact number of clusters definitely. In the `iris`
-example, it makes sense to look at the original data. If you take a look
-at the number of flower species in the data, we find that there are
-**three species**. Let’s plot a PCA and look at the variation between
-species.
+This is a good – but difficult – question to answer. Generally it is
+hard to determine the exact number of clusters definitively. In the
+`iris` example, it makes sense to look at the original data. If you take
+a look at the number of flower species in the data, we find that there
+are **three species**. Let’s plot a PCA and look at the variation
+between species.
 
 ``` r
 ## compute the PCA -- you know how to do this
@@ -250,7 +252,7 @@ it would then cluster roughly each species in a cluster (which makes
 sense in terms of their biology).
 
 **But what if we do not have any prior knowledge about potential
-clusters?** This is normally case when clustering…
+clusters?** Unfotunately, this is often the case when clustering!
 
 For example, this may often be the case when you have a number of study
 objects which you cannot group *a priori* into known clusters or groups.

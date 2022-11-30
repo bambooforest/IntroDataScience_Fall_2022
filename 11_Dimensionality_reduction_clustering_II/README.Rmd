@@ -28,7 +28,7 @@ library(ggdendro)
 
 ## PCA -- so what?
 
-Recall the materials on [PCA](https://github.com/bambooforest/IntroDataScience/tree/main/10_Dimensionality_reduction_clustering_I). As you remember, we may use **PCA** to boil down sets of multivariate data into a few uncorrelated variables that capture the main axes of variation in a multivariate data set (the so-called principle components or PCs for short). We can use the resulting PCs to visualize multivariate data in low-dimensional space and we may even make inferences about potential patterns of variation within the data. 
+Recall the materials on [PCA](../10_Dimensionality_reduction_clustering_I/). As you remember, we may use **PCA** to boil down sets of multivariate data into a few uncorrelated variables that capture the main axes of variation in a multivariate data set (the so-called principle components or PCs for short). We can use the resulting PCs to visualize multivariate data in low-dimensional space and we may even make inferences about potential patterns of variation within the data. 
 
 **But what can we do to find the actual patterns, e.g., clusters in the data?**
 
@@ -36,9 +36,13 @@ In this chapter we will focus on "**How to find actual patterns in multivariate 
 
 We will not go into the mathematical details of clustering algorithms, but instead focus on their practical applications. The main purpose of clustering can be summarized as follows ([source](https://en.wikipedia.org/wiki/Cluster_analysis)):
 
-**Clustering may be used for grouping objects (or subjects, specimens, etc.), such that objects in the same group (or cluster) are more similar to each other than objects in other clusters.**
+- **Clustering may be used for grouping objects (or subjects, specimens, etc.), such that objects in the same group (or cluster) are more similar to each other than objects in other clusters.**
 
-The basic idea of this chapter is 1) that you can implement a clustering procedure on your own in R, 2) that you understand which steps are included in a classical clustering analysis and 3) finally to apply the procedure on your own on different data sets -- and of course your own data! 
+The basic idea of this chapter is;
+
+1. that you can implement a clustering procedure on your own in R, 
+2. that you understand which steps are included in a classical clustering analysis and 
+3. finally to apply the procedure on your own on different data sets -- and of course your own data! 
 
 Now let's go through a **cluster analysis** in detail. 
 
@@ -130,7 +134,7 @@ grid.arrange(plot1, plot2, plot3, plot4, nrow = 2)
 
 ### How many clusters to choose in the end? 
 
-This is a good but difficult question to answer. Generally it is hard to determine the exact number of clusters definitely. In the `iris` example, it makes sense to look at the original data. If you take a look at the number of flower species in the data, we find that there are **three species**. Let's plot a PCA and look at the variation between species.
+This is a good -- but difficult -- question to answer. Generally it is hard to determine the exact number of clusters definitively. In the `iris` example, it makes sense to look at the original data. If you take a look at the number of flower species in the data, we find that there are **three species**. Let's plot a PCA and look at the variation between species.
 
 ```{r}
 ## compute the PCA -- you know how to do this
@@ -147,7 +151,7 @@ ggplot(iris_pca_dat, aes(x = PC1, y = PC2, color = Species)) +
 
 It becomes clear that here we would probably use three clusters, since it would then cluster roughly each species in a cluster (which makes sense in terms of their biology).
 
-**But what if we do not have any prior knowledge about potential clusters?** This is normally case when clustering...
+**But what if we do not have any prior knowledge about potential clusters?** Unfotunately, this is often the case when clustering!
 
 For example, this may often be the case when you have a number of study objects which you cannot group *a priori* into known clusters or groups. **That is where clustering really becomes interesting and useful!** There are certain [methods](https://www.datanovia.com/en/lessons/determining-the-optimal-number-of-clusters-3-must-know-methods/) to find out how many clusters one can utilize for an analysis. We will show you three methods here, but without going into the mathematical details behind it. However, beware because these methods give **statistical cues** rather than absolute truths! 
 
