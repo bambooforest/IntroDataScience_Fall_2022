@@ -81,6 +81,21 @@ This highlights an important learning point of this course:
 
 **Read what you need**.
 
-Every classroom has students with different levels of experience. The goal is that you understand and can implement the learning objectives in this course. It is not the goal that you go through every single URL provided in each chapter in detail. But of course read what interests you!
+***
+
+A note on learning how to code. If you have no experience, it will likely be a steep learning curve. Search engines are your friend. If you encounter an error, try searching on that error -- almost always, someone else has already encountered and solved your problem!
+
+Don't struggle for hours on the same problem -- reach out if needed. Either to a forum (e.g., [StackExchange](https://stackexchange.com) is a popular place for coding questions) or to your instructor. 
+
+**But in either case make sure you provide a reproducible example!** For example:
+
+* http://adv-r.had.co.nz/Reproducibility.html
+* https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example
+
+The code and the data needed to reproduce the error or problem.
+
+***
+
+Lastly, every classroom has students with different levels of experience. The goal is that you understand and can implement the learning objectives in this course. It is not the goal that you go through every single URL provided in each chapter in detail. But of course read what interests you!
 
 **Good luck and have fun!!!**
